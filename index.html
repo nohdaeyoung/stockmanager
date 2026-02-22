@@ -18,7 +18,21 @@
         .main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
         .header { height:60px; background:white; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; flex-shrink:0; }
         .content-scroll { flex:1; overflow-y:auto; padding:2rem; }
-        .widget-box { background:white; border-radius:8px; border:1px solid #e2e8f0; margin-bottom:2rem; overflow:hidden; }
+        
+        .widgets-row { display:flex; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
+        .widget-box { flex:1; min-width:300px; background:white; border-radius:8px; border:1px solid #e2e8f0; overflow:hidden; display:flex; flex-direction:column; }
+        .widget-header { padding:1rem 1.5rem; border-bottom:1px solid #e2e8f0; font-weight:600; color:#4a5568; background:#fcfcfc; display:flex; justify-content:space-between; align-items:center; }
+        
+        /* Custom Table for KR Stocks */
+        .kr-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
+        .kr-table th { background:#f7fafc; padding:0.8rem 1rem; text-align:right; font-weight:600; color:#718096; border-bottom:1px solid #e2e8f0; position:sticky; top:0; }
+        .kr-table th:first-child { text-align:left; }
+        .kr-table td { padding:0.8rem 1rem; border-bottom:1px solid #edf2f7; text-align:right; }
+        .kr-table td:first-child { text-align:left; font-weight:500; color:#2d3748; }
+        .kr-table-container { overflow-y:auto; max-height:350px; }
+        .change-up { color:#48bb78; }
+        .change-down { color:#f56565; }
+
         .report-view { background:white; border-radius:8px; border:1px solid #e2e8f0; padding:3rem; max-width:900px; margin:0 auto; }
         .loading { text-align:center; padding:2rem; color:#718096; }
         .markdown-body { line-height:1.7; }
@@ -44,60 +58,59 @@
     </header>
 
     <div class="content-scroll">
-        <div class="widget-box">
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-              {
-              "width": "100%",
-              "height": 350,
-              "symbolsGroups": [
-                {
-                  "name": "US Stocks",
-                  "symbols": [
-                    { "name": "NASDAQ:AAPL", "displayName": "Apple" },
-                    { "name": "NYSE:DIS", "displayName": "Disney" },
-                    { "name": "NYSE:F", "displayName": "Ford" },
-                    { "name": "NYSE:NKE", "displayName": "Nike" },
-                    { "name": "NASDAQ:NVDA", "displayName": "NVIDIA" },
-                    { "name": "NASDAQ:TSLA", "displayName": "Tesla" },
-                    { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
-                    { "name": "NASDAQ:GOOGL", "displayName": "Google" },
-                    { "name": "NASDAQ:AMZN", "displayName": "Amazon" },
-                    { "name": "NYSE:PLTR", "displayName": "Palantir" },
-                    { "name": "NASDAQ:AVGO", "displayName": "Broadcom" },
-                    { "name": "AMEX:CONY", "displayName": "Cony" },
-                    { "name": "NYSE:ETN", "displayName": "Eaton" }
-                  ]
-                },
-                {
-                  "name": "Korea Stocks",
-                  "symbols": [
-                    { "name": "KRX:005930", "displayName": "Samsung Electronics" },
-                    { "name": "KRX:088980", "displayName": "Macquarie Korea Infrastructure Fund" },
-                    { "name": "KRX:360200", "displayName": "Kim Kindex S&P 500 Etf" },
-                    { "name": "KRX:379800", "displayName": "Samsung KODEX S&P500 ETF" },
-                    { "name": "KRX:395170", "displayName": "Samsung Asset Management Co. - Kodex FN Top10 Equal Weight ETF" },
-                    { "name": "KRX:292150", "displayName": "Mirae Asset Tiger Top 10 ETF" },
-                    { "name": "KRX:329200", "displayName": "Mirae Asset Tiger Reits Real Estate Infra ETF" },
-                    { "name": "KRX:364980", "displayName": "Mirae Asset Tiger Secondary Battery TOP 10 ETF" },
-                    { "name": "KRX:360750", "displayName": "Mirae Asset Maps Management - Mirae Asset Tiger S&P500 ETF" },
-                    { "name": "KRX:381180", "displayName": "Mirae Asset Maps Management - Tiger PHLX Semiconductor Sector Nasdaq ETF" },
-                    { "name": "KRX:148020", "displayName": "KStar200 ETF (Equity)" },
-                    { "name": "KRX:161510", "displayName": "ARIRANG Dividend ETF" },
-                    { "name": "KRX:302450", "displayName": "KB KBStar Kospi ETF" },
-                    { "name": "KRX:381170", "displayName": "Mirae Asset Maps Management - Tiger US Tech Top 10 Index ETF" },
-                    { "name": "KRX:488770", "displayName": "Samsung Kodex Money Market Active Etf" },
-                    { "name": "KRX:069500", "displayName": "KODEX 200" }
-                  ]
+        <div class="widgets-row">
+            <!-- US Stocks Widget -->
+            <div class="widget-box">
+                <div class="widget-header">
+                    <span><i class="fas fa-flag-usa" style="color:#e53e3e; margin-right:5px;"></i> US Stocks (Live/Delayed)</span>
+                </div>
+                <div class="tradingview-widget-container">
+                  <div class="tradingview-widget-container__widget"></div>
+                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
+                  {
+                  "width": "100%",
+                  "height": 350,
+                  "symbolsGroups": [
+                    {
+                      "name": "US Stocks",
+                      "symbols": [
+                        { "name": "NASDAQ:AAPL", "displayName": "Apple" },
+                        { "name": "NYSE:DIS", "displayName": "Disney" },
+                        { "name": "NYSE:F", "displayName": "Ford" },
+                        { "name": "NYSE:NKE", "displayName": "Nike" },
+                        { "name": "NASDAQ:NVDA", "displayName": "NVIDIA" },
+                        { "name": "NASDAQ:TSLA", "displayName": "Tesla" },
+                        { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
+                        { "name": "NASDAQ:GOOGL", "displayName": "Google" },
+                        { "name": "NASDAQ:AMZN", "displayName": "Amazon" },
+                        { "name": "NYSE:PLTR", "displayName": "Palantir" },
+                        { "name": "NASDAQ:AVGO", "displayName": "Broadcom" },
+                        { "name": "AMEX:CONY", "displayName": "Cony" },
+                        { "name": "NYSE:ETN", "displayName": "Eaton" }
+                      ]
+                    }
+                  ],
+                  "showSymbolLogo": true,
+                  "isTransparent": false,
+                  "colorTheme": "light",
+                  "locale": "en"
                 }
-              ],
-              "showSymbolLogo": true,
-              "isTransparent": false,
-              "colorTheme": "light",
-              "locale": "en"
-            }
-              </script>
+                  </script>
+                </div>
+            </div>
+
+            <!-- Korea Stocks Table -->
+            <div class="widget-box">
+                <div class="widget-header">
+                    <span><i class="fas fa-won-sign" style="color:#3182ce; margin-right:5px;"></i> Korea Stocks (Latest Close)</span>
+                    <span style="font-size:0.75rem; font-weight:normal;">From Daily Report</span>
+                </div>
+                <div class="kr-table-container">
+                    <table class="kr-table" id="kr-stock-list">
+                        <thead><tr><th>Company</th><th>Price</th><th>High</th><th>Low</th></tr></thead>
+                        <tbody><tr><td colspan="4" style="text-align:center;">Loading...</td></tr></tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -127,6 +140,10 @@
                 }
             });
 
+            // Load KR Data from latest Korea report
+            const krReport = reports.find(r => r.title.includes('Korea') || r.url.includes('korea'));
+            if (krReport) loadKoreaData(krReport.url);
+
             menu.innerHTML = '';
             reports.forEach((r, idx) => {
                 const div = document.createElement('div');
@@ -142,6 +159,50 @@
             });
         } catch (e) { 
             menu.innerHTML = '<p style="padding:1rem; color:red">Error</p>';
+        }
+    }
+
+    async function loadKoreaData(url) {
+        try {
+            const res = await fetch(url);
+            const md = await res.text();
+            
+            // Parse Markdown: ## KRX:CODE - Name ... | Price | ...
+            const tbody = document.querySelector('#kr-stock-list tbody');
+            tbody.innerHTML = '';
+            
+            const sections = md.split('## KRX:');
+            sections.shift(); // skip header
+            
+            sections.forEach(sec => {
+                // Get Name
+                const nameLine = sec.split('\n')[0];
+                let name = nameLine.includes('—') ? nameLine.split('—')[1].trim() : nameLine.split(' ')[0];
+                if (name.includes('(')) name = name.split('(')[0].trim(); // clean up
+                
+                // Get Price Table Row
+                const rowMatch = sec.match(/\| (.*?) \| (.*?) \| (.*?) \| (.*?) \|/);
+                if (rowMatch) {
+                    // rowMatch[0] is header sometimes, we need to skip header
+                    // Find the second match or look for numbers
+                    const rows = sec.match(/\| [^|]* \| [^|]* \| [^|]* \| [^|]* \|/g);
+                    let dataRow = rows ? rows[1] : null; // rows[0] is usually header
+                    
+                    if (dataRow) {
+                        const cols = dataRow.split('|').map(c => c.trim()).filter(c => c);
+                        const price = cols[0];
+                        // const change = cols[1]; // logic to colorize?
+                        const high = cols[2];
+                        const low = cols[3];
+                        
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `<td>${name}</td><td>${price}</td><td>${high}</td><td>${low}</td>`;
+                        tbody.appendChild(tr);
+                    }
+                }
+            });
+        } catch (e) {
+            console.error("KR data load error", e);
         }
     }
 
