@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Stock Reports</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f8; color: #333; }
+        header { background: #0d1b2a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        h1 { margin: 0; font-size: 1.5rem; }
+        .container { display: flex; max-width: 1200px; margin: 2rem auto; gap: 2rem; padding: 0 1rem; }
+        .sidebar { width: 300px; background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); height: fit-content; }
+        .main-content { flex: 1; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); min-height: 80vh; }
+        
+        /* List Styles */
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin-bottom: 0.8rem; }
+        a { text-decoration: none; color: #2b6cb0; }
+        a:hover { text-decoration: underline; }
+        .report-link { cursor: pointer; display: block; padding: 0.8rem; background: #f7fafc; border-radius: 4px; border: 1px solid #edf2f7; transition: all 0.2s; }
+        .report-link:hover, .report-link.active { background: #ebf8ff; border-color: #bee3f8; color: #2b6cb0; font-weight: 500; }
+
+        /* Markdown Content Styles */
+        .markdown-body { line-height: 1.6; }
+        .markdown-body h1 { border-bottom: 2px solid #eaecef; padding-bottom: 0.3em; margin-top: 0; font-size: 2em; color: #1a202c; }
+        .markdown-body h2 { margin-top: 2rem; border-bottom: 1px solid #eaecef; padding-bottom: 0.3em; font-size: 1.5em; color: #2d3748; }
+        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        .markdown-body th, .markdown-body td { border: 1px solid #e2e8f0; padding: 0.8rem 1rem; text-align: left; }
+        .markdown-body th { background: #f7fafc; font-weight: 600; color: #4a5568; }
+        .markdown-body blockquote { border-left: 4px solid #dfe2e5; color: #6a737d; padding-left: 1rem; margin: 0; }
+        .loading { text-align: center; padding: 2rem; color: #718096; }
+        
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: auto; margin-bottom: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Prestige Daily Reports</h1>
+    <div style="font-size: 0.8rem; opacity: 0.8;">Automated Portfolio Insights</div>
+</header>
+
+<div class="container">
+    <aside class="sidebar">
+        <h3 style="margin-top:0; border-bottom: 2px solid #edf2f7; padding-bottom: 0.5rem; margin-bottom: 1rem;">Reports Archive</h3>
+        <div id="report-list" class="loading">Loading list...</div>
+    </aside>
+    <main class="main-content">
+        <div id="content" class="markdown-body">
+            <div class="loading">Select a report from the sidebar to view details.</div>
+        </div>
+    </main>
+</div>
+
+<script>
+    async function init() {
+        const listDiv = document.getElementById('report-list');
+        try {
+            // Fetch index.md to parse links
+            const response = await fetch('index.md?t=' + Date.now());
+            if (!response.ok) throw new Error('Failed to load index');
+            const text = await response.text();
+            
+            const reports = [];
+            // Regex to match markdown links: - [Title](URL)
+            // GitHub blob URL format: https://github.com/USER/REPO/blob/BRANCH/PATH
+            // We need to convert it to raw URL or relative path for fetching.
+            // Raw URL format: https://raw.githubusercontent.com/USER/REPO/BRANCH/PATH
+            // Or relative if on same domain: PATH
+            
+            const lines = text.split('\n');
+            lines.forEach(line => {
+                const match = line.match(/- \[(.*?)\]\((.*?)\)/);
+                if (match) {
+                    let title = match[1];
+                    let url = match[2];
+                    
+                    // Convert GitHub blob URL to relative path
+                    if (url.includes('/blob/gh-pages/')) {
+                        const parts = url.split('/blob/gh-pages/');
+                        if (parts.length > 1) url = parts[1];
+                    }
+                    reports.push({ title, url });
+                }
+            });
+            
+            if (reports.length === 0) {
+                listDiv.innerHTML = '<p>No reports found.</p>';
+                return;
+            }
+            
+            const ul = document.createElement('ul');
+            reports.forEach((r, index) => {
+                const li = document.createElement('li');
+                const div = document.createElement('div');
+                div.className = 'report-link';
+                div.innerText = r.title;
+                div.onclick = () => {
+                    loadReport(r.url);
+                    document.querySelectorAll('.report-link').forEach(el => el.classList.remove('active'));
+                    div.classList.add('active');
+                };
+                li.appendChild(div);
+                ul.appendChild(li);
+                
+                // Auto load first report
+                if (index === 0) {
+                    div.click();
+                }
+            });
+            listDiv.innerHTML = '';
+            listDiv.appendChild(ul);
+            
+        } catch (e) {
+            console.error(e);
+            listDiv.innerHTML = '<p style="color:red">Error loading reports.</p>';
+        }
+    }
+
+    async function loadReport(url) {
+        const contentDiv = document.getElementById('content');
+        contentDiv.innerHTML = '<div class="loading">Loading report...</div>';
+        
+        try {
+            const res = await fetch(url + '?t=' + Date.now());
+            if (!res.ok) throw new Error('Failed to fetch report');
+            const md = await res.text();
+            contentDiv.innerHTML = marked.parse(md);
+        } catch (e) {
+            contentDiv.innerHTML = `<p style="color:red">Error: ${e.message}</p>`;
+        }
+    }
+
+    init();
+</script>
+
+</body>
+</html>
