@@ -4,7 +4,7 @@
 
 ---
 
-## KRX:069500 (069500.KS)
+## KRX:069500 — KODEX 200
 
 1) 시세 (KRW)
 
@@ -20,7 +20,7 @@
 
 ---
 
-## KRX:088980 (088980.KS)
+## KRX:088980 — Macquarie Korea Infrastructure Fund
 
 1) 시세 (KRW)
 
@@ -36,7 +36,7 @@
 
 ---
 
-## KRX:148020 (148020.KS)
+## KRX:148020 — KStar200 ETF (Equity)
 
 1) 시세 (KRW)
 
@@ -52,7 +52,7 @@
 
 ---
 
-## KRX:161510 (161510.KS)
+## KRX:161510 — ARIRANG Dividend ETF
 
 1) 시세 (KRW)
 
@@ -68,7 +68,7 @@
 
 ---
 
-## KRX:292150 (292150.KS)
+## KRX:292150 — Mirae Asset Tiger Top 10 ETF
 
 1) 시세 (KRW)
 
@@ -84,7 +84,7 @@
 
 ---
 
-## KRX:302450 (302450.KS)
+## KRX:302450 — KB KBStar Kospi ETF
 
 1) 시세 (KRW)
 
@@ -100,7 +100,7 @@
 
 ---
 
-## KRX:329200 (329200.KS)
+## KRX:329200 — Mirae Asset Tiger Reits Real Estate Infra ETF
 
 1) 시세 (KRW)
 
@@ -116,7 +116,7 @@
 
 ---
 
-## KRX:360200 (360200.KS)
+## KRX:360200 — Kim Kindex S&P 500 Etf
 
 1) 시세 (KRW)
 
@@ -132,7 +132,7 @@
 
 ---
 
-## KRX:360750 (360750.KS)
+## KRX:360750 — Mirae Asset Maps Management - Mirae Asset Tiger S&P500 ETF
 
 1) 시세 (KRW)
 
@@ -148,7 +148,7 @@
 
 ---
 
-## KRX:364980 (364980.KS)
+## KRX:364980 — Mirae Asset Tiger Secondary Battery TOP 10 ETF
 
 1) 시세 (KRW)
 
@@ -164,7 +164,7 @@
 
 ---
 
-## KRX:379800 (379800.KS)
+## KRX:379800 — Samsung KODEX S&P500 ETF
 
 1) 시세 (KRW)
 
@@ -180,7 +180,7 @@
 
 ---
 
-## KRX:381170 (381170.KS)
+## KRX:381170 — Mirae Asset Maps Management - Tiger US Tech Top 10 Index ETF
 
 1) 시세 (KRW)
 
@@ -196,7 +196,7 @@
 
 ---
 
-## KRX:381180 (381180.KS)
+## KRX:381180 — Mirae Asset Maps Management - Tiger PHLX Semiconductor Sector Nasdaq ETF
 
 1) 시세 (KRW)
 
@@ -212,7 +212,7 @@
 
 ---
 
-## KRX:395170 (395170.KS)
+## KRX:395170 — Samsung Asset Management Co. - Kodex FN Top10 Equal Weight ETF
 
 1) 시세 (KRW)
 
@@ -228,7 +228,7 @@
 
 ---
 
-## KRX:488770 (488770.KS)
+## KRX:488770 — Samsung Kodex Money Market Active Etf
 
 1) 시세 (KRW)
 
