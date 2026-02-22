@@ -139,11 +139,9 @@
     setInterval(() => document.getElementById('current-time').innerText = new Date().toLocaleString(), 1000);
 
     function switchTab(tab) {
-        // Update Tab Header classes
         document.querySelectorAll('.widget-tab').forEach(el => el.classList.remove('active'));
         event.target.classList.add('active');
         
-        // Update Content Visibility
         document.querySelectorAll('.widget-content').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + tab).classList.add('active');
     }
@@ -162,19 +160,23 @@
                     let title = m[1];
                     let url = m[2];
                     if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
-                    let date = "Unknown";\n                    // Fix: Try URL if title missing date
-                    const dateMatch = title.match(/(\d4-\d2-\d2)/);
+                    
+                    let date = "Unknown";
+                    let dateMatch = title.match(/(\d{4}-\d{2}-\d{2})/);
+                    if (!dateMatch) dateMatch = url.match(/(\d{4}-\d{2}-\d{2})/);
                     if (dateMatch) date = dateMatch[1];
+                    
                     reports.push({ title, url, date });
                 }
             });
 
+            // Load KR Data
             const krReport = reports.find(r => r.title.includes('Korea') || r.url.includes('korea'));
             if (krReport) loadKoreaData(krReport.url);
 
             const groups = {};
             reports.forEach(r => {
-                const month = r.date.substring(0, 7);
+                const month = (r.date !== "Unknown") ? r.date.substring(0, 7) : "Recent";
                 if (!groups[month]) groups[month] = [];
                 groups[month].push(r);
             });
@@ -221,7 +223,8 @@
             if (menu.querySelector('.menu-item')) menu.querySelector('.menu-item').click();
 
         } catch (e) { 
-            menu.innerHTML = '<p style="padding:1rem; color:red">Error</p>';
+            console.error(e);
+            menu.innerHTML = '<p style="padding:1rem; color:red">Error loading menu</p>';
         }
     }
 
