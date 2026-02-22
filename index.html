@@ -122,7 +122,7 @@
             <div id="tab-kr" class="widget-content">
                 <div class="kr-table-container">
                     <table class="kr-table" id="kr-stock-list">
-                        <thead><tr><th>Company</th><th>Price</th><th>Chg</th><th>%</th></tr></thead>
+                        <thead><tr><th>Company</th><th>Price</th><th>Chg</th><th>%</th><th>High</th><th>Low</th><th>Prev</th></tr></thead>
                         <tbody><tr><td colspan="4" style="text-align:center; padding:2rem;">Loading data from report...</td></tr></tbody>
                     </table>
                 </div>
@@ -257,8 +257,24 @@
                         if (chg.includes('+')) colorClass = 'change-up';
                         else if (chg.includes('-')) colorClass = 'change-down';
                     }
+                    // High/Low from cols[2], cols[3]
+                    const high = cols[2].replace(' KRW', '').replace('KRW', '').trim();
+                    const low = cols[3].replace(' KRW', '').replace('KRW', '').trim();
+                    
+                    // Calc Prev: Price - Change
+                    // Price and Chg are strings with commas. Need to parse float.
+                    let prev = '-';
+                    try {
+                        const pVal = parseFloat(price.replace(/,/g, ''));
+                        const cVal = parseFloat(chg.replace(/,/g, ''));
+                        if (!isNaN(pVal) && !isNaN(cVal)) {
+                            const prevVal = pVal - cVal;
+                            prev = prevVal.toLocaleString();
+                        }
+                    } catch(e) {}
+
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${name}</td><td>${price}</td><td class="${colorClass}">${chg}</td><td class="${colorClass}">${pct}</td>`;
+                    tr.innerHTML = `<td>${name}</td><td>${price}</td><td class="${colorClass}">${chg}</td><td class="${colorClass}">${pct}</td><td>${high}</td><td>${low}</td><td>${prev}</td>`;
                     tbody.appendChild(tr);
                 }
             });
