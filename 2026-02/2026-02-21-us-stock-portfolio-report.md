@@ -1,4 +1,4 @@
-# Prestige Daily Report — 2026-02-21
+# Prestige US Stock Portfolio Report — 2026-02-21
 
 **기준일:** 2026-02-20 (금요일 장 마감)
 
