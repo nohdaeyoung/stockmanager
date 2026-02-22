@@ -30,22 +30,27 @@
         .header { height:60px; background:white; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; flex-shrink:0; }
         .content-scroll { flex:1; overflow-y:auto; padding:2rem; }
         
-        .widgets-row { display:flex; gap:2rem; margin-bottom:2rem; flex-wrap:wrap; }
-        .widget-box { flex:1; min-width:300px; background:white; border-radius:8px; border:1px solid #e2e8f0; overflow:hidden; display:flex; flex-direction:column; }
-        .widget-header { padding:1rem 1.5rem; border-bottom:1px solid #e2e8f0; font-weight:600; color:#4a5568; background:#fcfcfc; display:flex; justify-content:space-between; align-items:center; font-size:1.05rem; }
-        
+        /* Tabbed Widget */
+        .widget-box { background:white; border-radius:8px; border:1px solid #e2e8f0; margin-bottom:2rem; overflow:hidden; display:flex; flex-direction:column; min-height: 420px; }
+        .widget-tabs { display: flex; background: #fcfcfc; border-bottom: 1px solid #e2e8f0; }
+        .widget-tab { padding: 1rem 1.5rem; cursor: pointer; font-weight: 600; color: #718096; border-right: 1px solid #e2e8f0; border-bottom: 2px solid transparent; transition: 0.2s; }
+        .widget-tab:hover { background: #f7fafc; color: #2d3748; }
+        .widget-tab.active { background: white; color: #3182ce; border-bottom-color: #3182ce; }
+        .widget-content { padding: 0; flex: 1; display: none; }
+        .widget-content.active { display: block; }
+
         .kr-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
         .kr-table th { background:#f7fafc; padding:0.8rem 1rem; text-align:right; font-weight:600; color:#718096; border-bottom:1px solid #e2e8f0; position:sticky; top:0; }
         .kr-table th:first-child { text-align:left; }
         .kr-table td { padding:0.8rem 1rem; border-bottom:1px solid #edf2f7; text-align:right; }
         .kr-table td:first-child { text-align:left; font-weight:500; color:#2d3748; }
-        .kr-table-container { overflow-y:auto; max-height:350px; }
+        .kr-table-container { overflow-y:auto; max-height:360px; }
         .change-up { color:#48bb78; font-weight:600; }
         .change-down { color:#f56565; font-weight:600; }
 
         .report-view { background:white; border-radius:8px; border:1px solid #e2e8f0; padding:3rem; max-width:900px; margin:0 auto; }
         .loading { text-align:center; padding:2rem; color:#718096; }
-        /* Markdown */
+        
         .markdown-body { line-height:1.7; }
         .markdown-body h1 { border-bottom:1px solid #e2e8f0; }
         .markdown-body table { width:100%; border-collapse:collapse; margin:1rem 0; }
@@ -69,18 +74,21 @@
     </header>
 
     <div class="content-scroll">
-        <div class="widgets-row">
-            <!-- US Stocks Widget -->
-            <div class="widget-box">
-                <div class="widget-header">
-                    <span>🇺🇸 US Stocks (Live/Delayed)</span>
-                </div>
+        <!-- Tabbed Widget Container -->
+        <div class="widget-box">
+            <div class="widget-tabs">
+                <div class="widget-tab active" onclick="switchTab('us')">🇺🇸 US Stocks</div>
+                <div class="widget-tab" onclick="switchTab('kr')">🇰🇷 Korea Stocks</div>
+            </div>
+
+            <!-- US Content -->
+            <div id="tab-us" class="widget-content active">
                 <div class="tradingview-widget-container">
                   <div class="tradingview-widget-container__widget"></div>
                   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                   {
                   "width": "100%",
-                  "height": 350,
+                  "height": 360,
                   "symbolsGroups": [
                     {
                       "name": "US Stocks",
@@ -110,16 +118,12 @@
                 </div>
             </div>
 
-            <!-- Korea Stocks Table -->
-            <div class="widget-box">
-                <div class="widget-header">
-                    <span>🇰🇷 Korea Stocks (Latest Close)</span>
-                    <span style="font-size:0.75rem; font-weight:normal;">From Daily Report</span>
-                </div>
+            <!-- KR Content -->
+            <div id="tab-kr" class="widget-content">
                 <div class="kr-table-container">
                     <table class="kr-table" id="kr-stock-list">
                         <thead><tr><th>Company</th><th>Price</th><th>Chg</th><th>%</th></tr></thead>
-                        <tbody><tr><td colspan="4" style="text-align:center;">Loading...</td></tr></tbody>
+                        <tbody><tr><td colspan="4" style="text-align:center; padding:2rem;">Loading data from report...</td></tr></tbody>
                     </table>
                 </div>
             </div>
@@ -133,6 +137,16 @@
 
 <script>
     setInterval(() => document.getElementById('current-time').innerText = new Date().toLocaleString(), 1000);
+
+    function switchTab(tab) {
+        // Update Tab Header classes
+        document.querySelectorAll('.widget-tab').forEach(el => el.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Update Content Visibility
+        document.querySelectorAll('.widget-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+    }
 
     async function init() {
         const menu = document.getElementById('report-menu');
@@ -148,22 +162,19 @@
                     let title = m[1];
                     let url = m[2];
                     if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
-                    
                     let date = "Unknown";
-                    const dateMatch = title.match(/(\d{4}-\d{2}-\d{2})/);
+                    const dateMatch = title.match(/(\d4-\d2-\d2)/);
                     if (dateMatch) date = dateMatch[1];
-                    
                     reports.push({ title, url, date });
                 }
             });
 
-            // Load KR Data from latest Korea report
             const krReport = reports.find(r => r.title.includes('Korea') || r.url.includes('korea'));
             if (krReport) loadKoreaData(krReport.url);
 
             const groups = {};
             reports.forEach(r => {
-                const month = r.date.substring(0, 7); // YYYY-MM
+                const month = r.date.substring(0, 7);
                 if (!groups[month]) groups[month] = [];
                 groups[month].push(r);
             });
@@ -174,16 +185,12 @@
             sortedMonths.forEach((month, groupIdx) => {
                 const grpDiv = document.createElement('div');
                 grpDiv.className = 'menu-group';
-                
-                // Accordion Header
                 const header = document.createElement('div');
                 header.className = 'menu-header';
                 header.innerHTML = `<span>${month}</span> <i class="fas fa-chevron-down"></i>`;
-                
                 const itemsContainer = document.createElement('div');
                 itemsContainer.className = 'menu-items-container';
                 
-                // Collapse logic: Open first (newest), collapse others
                 if (groupIdx > 0) {
                     itemsContainer.classList.add('hidden');
                     header.classList.add('collapsed');
@@ -206,13 +213,11 @@
                     };
                     itemsContainer.appendChild(item);
                 });
-                
                 grpDiv.appendChild(header);
                 grpDiv.appendChild(itemsContainer);
                 menu.appendChild(grpDiv);
             });
 
-            // Auto load first report
             if (menu.querySelector('.menu-item')) menu.querySelector('.menu-item').click();
 
         } catch (e) { 
@@ -226,18 +231,14 @@
             const md = await res.text();
             const tbody = document.querySelector('#kr-stock-list tbody');
             tbody.innerHTML = '';
-            
             const sections = md.split('## KRX:');
             sections.shift();
-            
             sections.forEach(sec => {
                 const nameLine = sec.split('\n')[0];
                 let name = nameLine.includes('—') ? nameLine.split('—')[1].trim() : nameLine.split(' ')[0];
                 if (name.includes('(')) name = name.split('(')[0].trim();
-                
                 const rows = sec.match(/\| [^|]* \| [^|]* \| [^|]* \| [^|]* \|/g);
                 let dataRow = rows ? rows[1] : null;
-                
                 if (dataRow) {
                     const cols = dataRow.split('|').map(c => c.trim()).filter(c => c);
                     const price = cols[0].replace(' KRW', '').replace('KRW', '').trim();
@@ -280,4 +281,3 @@
 </script>
 </body>
 </html>
-<!-- Cache Bust Sun Feb 22 20:08:29 KST 2026 -->
