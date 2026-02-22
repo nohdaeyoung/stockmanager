@@ -162,7 +162,7 @@
                     let title = m[1];
                     let url = m[2];
                     if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
-                    let date = "Unknown";
+                    let date = "Unknown";\n                    // Fix: Try URL if title missing date
                     const dateMatch = title.match(/(\d4-\d2-\d2)/);
                     if (dateMatch) date = dateMatch[1];
                     reports.push({ title, url, date });
