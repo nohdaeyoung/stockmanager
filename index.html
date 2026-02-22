@@ -21,9 +21,8 @@
         .widget-box { background:white; border-radius:8px; border:1px solid #e2e8f0; margin-bottom:2rem; overflow:hidden; }
         .report-view { background:white; border-radius:8px; border:1px solid #e2e8f0; padding:3rem; max-width:900px; margin:0 auto; }
         .loading { text-align:center; padding:2rem; color:#718096; }
-        /* Markdown */
         .markdown-body { line-height:1.7; }
-        .markdown-body h1, .markdown-body h2 { border-bottom:1px solid #e2e8f0; padding-bottom:0.3em; }
+        .markdown-body h1 { border-bottom:1px solid #e2e8f0; }
         .markdown-body table { width:100%; border-collapse:collapse; margin:1rem 0; }
         .markdown-body th, .markdown-body td { border:1px solid #e2e8f0; padding:0.6rem 1rem; }
         .markdown-body th { background:#f7fafc; }
@@ -45,7 +44,6 @@
     </header>
 
     <div class="content-scroll">
-        <!-- Live Prices Widget -->
         <div class="widget-box">
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
@@ -75,21 +73,22 @@
                 {
                   "name": "Korea Stocks",
                   "symbols": [
-                    { "name": "KRX:088980", "displayName": "Macquarie Infra" },
-                    { "name": "KRX:360200" },
-                    { "name": "KRX:379800" },
-                    { "name": "KRX:395170" },
-                    { "name": "KRX:292150" },
-                    { "name": "KRX:329200" },
-                    { "name": "KRX:364980" },
-                    { "name": "KRX:360750" },
-                    { "name": "KRX:381180" },
-                    { "name": "KRX:148020" },
-                    { "name": "KRX:161510" },
-                    { "name": "KRX:302450" },
-                    { "name": "KRX:381170" },
-                    { "name": "KRX:488770" },
-                    { "name": "KRX:069500" }
+                    { "name": "KRX:005930", "displayName": "Samsung Electronics" },
+                    { "name": "KRX:088980", "displayName": "Macquarie Korea Infrastructure Fund" },
+                    { "name": "KRX:360200", "displayName": "Kim Kindex S&P 500 Etf" },
+                    { "name": "KRX:379800", "displayName": "Samsung KODEX S&P500 ETF" },
+                    { "name": "KRX:395170", "displayName": "Samsung Asset Management Co. - Kodex FN Top10 Equal Weight ETF" },
+                    { "name": "KRX:292150", "displayName": "Mirae Asset Tiger Top 10 ETF" },
+                    { "name": "KRX:329200", "displayName": "Mirae Asset Tiger Reits Real Estate Infra ETF" },
+                    { "name": "KRX:364980", "displayName": "Mirae Asset Tiger Secondary Battery TOP 10 ETF" },
+                    { "name": "KRX:360750", "displayName": "Mirae Asset Maps Management - Mirae Asset Tiger S&P500 ETF" },
+                    { "name": "KRX:381180", "displayName": "Mirae Asset Maps Management - Tiger PHLX Semiconductor Sector Nasdaq ETF" },
+                    { "name": "KRX:148020", "displayName": "KStar200 ETF (Equity)" },
+                    { "name": "KRX:161510", "displayName": "ARIRANG Dividend ETF" },
+                    { "name": "KRX:302450", "displayName": "KB KBStar Kospi ETF" },
+                    { "name": "KRX:381170", "displayName": "Mirae Asset Maps Management - Tiger US Tech Top 10 Index ETF" },
+                    { "name": "KRX:488770", "displayName": "Samsung Kodex Money Market Active Etf" },
+                    { "name": "KRX:069500", "displayName": "KODEX 200" }
                   ]
                 }
               ],
@@ -141,7 +140,7 @@
                 menu.appendChild(div);
                 if (idx === 0) div.click();
             });
-        } catch (e) {
+        } catch (e) { 
             menu.innerHTML = '<p style="padding:1rem; color:red">Error</p>';
         }
     }
