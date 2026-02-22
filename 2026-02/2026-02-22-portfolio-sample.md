@@ -21,11 +21,11 @@
 - 투자 권고는 보유로 유지합니다.
 
 3) 오늘의 뉴스 (상위 5 — 미국 매체 중심)
-1. 웨스트버지니아 주 검찰총장은 아이클라우드가 아동 성착취물 유통에 관여했다고 주장하며 애플을 고소했으며, 이로 인한 법적·평판 리스크가 부각되고 있습니다. — https://www.reuters.com/sustainability/boards-policy-regulation/west-virginia-says-it-has-sued-apple-over-iclouds-alleged-role-distribution-2026-02-19/
-2. 애플과 구글은 개편된 Siri에 구글의 젬마이니(Gemini) 모델을 도입하기로 다년간 계약을 체결함으로써 양사 협력이 강화되었습니다. — https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/
-3. 애플은 이스라엘의 오디오 AI 스타트업 Q.ai를 인수하여 오디오 중심 AI 역량을 강화하려는 의지를 보였습니다. — https://www.reuters.com/business/apple-acquires-audio-ai-startup-qai-2026-01-29/
-4. 닛케이 아시아 보도에 따르면 애플은 메모리 제약 속에서 2026년 프리미엄 아이폰 모델(폴더블 포함) 출시를 우선시하는 방향으로 제품 로드맵을 조정하고 있습니다. — https://www.reuters.com/business/apple-prioritize-premium-iphone-launches-2026-nikkei-asia-reports-2026-01-30/
-5. 최근 대법원 판결이 애플의 33억 달러 관세 청구에 미치는 잠재적 영향을 CNBC가 분석하여 관세 부담과 비용 구조에 대한 논의가 진행되고 있습니다. — https://www.cnbc.com/2026/02/20/how-supreme-court-decision-affects-apple-tariff-bill.html
+1. 웨스트버지니아 주 검찰총장은 아이클라우드가 아동 성착취물 유통에 관여했다고 주장하며 애플을 고소했으며, 이로 인한 법적·평판 리스크가 부각되고 있습니다. — <a href="https://www.reuters.com/sustainability/boards-policy-regulation/west-virginia-says-it-has-sued-apple-over-iclouds-alleged-role-distribution-2026-02-19/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/sustainability/boards-policy-regulation/west-virginia-says-it-has-sued-apple-over-iclouds-alleged-role-distribution-2026-02-19/</a>
+2. 애플과 구글은 개편된 Siri에 구글의 젬마이니(Gemini) 모델을 도입하기로 다년간 계약을 체결함으로써 양사 협력이 강화되었습니다. — <a href="https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/google-apple-enter-into-multi-year-ai-deal-gemini-models-2026-01-12/</a>
+3. 애플은 이스라엘의 오디오 AI 스타트업 Q.ai를 인수하여 오디오 중심 AI 역량을 강화하려는 의지를 보였습니다. — <a href="https://www.reuters.com/business/apple-acquires-audio-ai-startup-qai-2026-01-29/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/apple-acquires-audio-ai-startup-qai-2026-01-29/</a>
+4. 닛케이 아시아 보도에 따르면 애플은 메모리 제약 속에서 2026년 프리미엄 아이폰 모델(폴더블 포함) 출시를 우선시하는 방향으로 제품 로드맵을 조정하고 있습니다. — <a href="https://www.reuters.com/business/apple-prioritize-premium-iphone-launches-2026-nikkei-asia-reports-2026-01-30/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/apple-prioritize-premium-iphone-launches-2026-nikkei-asia-reports-2026-01-30/</a>
+5. 최근 대법원 판결이 애플의 33억 달러 관세 청구에 미치는 잠재적 영향을 CNBC가 분석하여 관세 부담과 비용 구조에 대한 논의가 진행되고 있습니다. — <a href="https://www.cnbc.com/2026/02/20/how-supreme-court-decision-affects-apple-tariff-bill.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/20/how-supreme-court-decision-affects-apple-tariff-bill.html</a>
 
 ---
 
@@ -44,11 +44,11 @@
 - 투자 권고는 보유로 유지합니다.
 
 3) 오늘의 뉴스
-1. 디즈니는 국제 방문객 감소 경고로 테마파크 실적에 대한 우려가 제기되어 주가가 하락했습니다. — https://www.reuters.com/business/media-telecom/disney-theme-parks-help-boost-earnings-above-wall-street-forecasts-2026-02-02/
-2. 최근 보도 및 분기 실적 코멘트는 스트리밍 가입자 성장률이 시장 기대를 밑돌고 있음을 시사합니다. — https://www.reuters.com/markets/us/disney-streaming-growth-misses-expectations-2026-02-19/
-3. 월가 애널리스트들은 혼조된 실적을 반영하여 디즈니의 목표주가를 하향 조정하고 있습니다. — https://www.wsj.com/articles/disney-earnings-reaction-2026
-4. 신작 영화 개봉은 테마파크 및 머천다이징 사업에 긍정적 영향을 줄 수 있는 요인으로 평가됩니다. — https://www.bloomberg.com/news/articles/2026-02-10/disney-content-strategy
-5. 스트리밍 광고 시장의 동향이 향후 마진에 압박을 가할 수 있다는 분석이 제기되고 있습니다. — https://www.nytimes.com/2026/02/20/business/media/streaming-ad-markets.html
+1. 디즈니는 국제 방문객 감소 경고로 테마파크 실적에 대한 우려가 제기되어 주가가 하락했습니다. — <a href="https://www.reuters.com/business/media-telecom/disney-theme-parks-help-boost-earnings-above-wall-street-forecasts-2026-02-02/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/media-telecom/disney-theme-parks-help-boost-earnings-above-wall-street-forecasts-2026-02-02/</a>
+2. 최근 보도 및 분기 실적 코멘트는 스트리밍 가입자 성장률이 시장 기대를 밑돌고 있음을 시사합니다. — <a href="https://www.reuters.com/markets/us/disney-streaming-growth-misses-expectations-2026-02-19/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/markets/us/disney-streaming-growth-misses-expectations-2026-02-19/</a>
+3. 월가 애널리스트들은 혼조된 실적을 반영하여 디즈니의 목표주가를 하향 조정하고 있습니다. — <a href="https://www.wsj.com/articles/disney-earnings-reaction-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/disney-earnings-reaction-2026</a>
+4. 신작 영화 개봉은 테마파크 및 머천다이징 사업에 긍정적 영향을 줄 수 있는 요인으로 평가됩니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-10/disney-content-strategy" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-10/disney-content-strategy</a>
+5. 스트리밍 광고 시장의 동향이 향후 마진에 압박을 가할 수 있다는 분석이 제기되고 있습니다. — <a href="https://www.nytimes.com/2026/02/20/business/media/streaming-ad-markets.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/20/business/media/streaming-ad-markets.html</a>
 
 ---
 
@@ -66,11 +66,11 @@
 - 권고: 보유(추가 매수 시 분할 매수 전략 고려).
 
 3) 오늘의 뉴스
-1. 포드는 분기 실적이 전망치를 하회했으나 경영진은 2026년 더 강한 실적을 기대한다고 밝혔습니다. — https://www.reuters.com/business/autos-transportation/fords-quarterly-earnings-miss-forecasts-ceo-sees-stronger-year-2026-2026-02-10/
-2. 내부 소식통에 따르면 초기 품질 개선을 반영하여 전사 보너스 상향을 추진하고 있습니다. — https://www.reuters.com/business/world-at-work/ford-boosts-companywide-bonus-initial-quality-improves-sources-say-2026-02-11/
-3. 포드는 공급업체 구조조정 자금 지원 방안에 대해 협의 중이며 부품 공급 안정화를 목표로 하고 있습니다. — https://www.reuters.com/business/autos-transportation/ford-general-motors-talks-with-first-brands-over-rescue-financing-ft-reports-2026-01-27/
-4. 전기차 확대에 따른 생산 능력 확장 및 공장 업그레이드 계획이 지속적으로 보도되고 있습니다. — https://www.bloomberg.com/news/articles/2026-02-01/ford-ev-expansion
-5. 대중 시장 전기차 경쟁 심화로 인한 가격 압박이 단기적 리스크로 작용할 수 있습니다. — https://www.nytimes.com/2026/02/15/business/ford-ev-competition.html
+1. 포드는 분기 실적이 전망치를 하회했으나 경영진은 2026년 더 강한 실적을 기대한다고 밝혔습니다. — <a href="https://www.reuters.com/business/autos-transportation/fords-quarterly-earnings-miss-forecasts-ceo-sees-stronger-year-2026-2026-02-10/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/autos-transportation/fords-quarterly-earnings-miss-forecasts-ceo-sees-stronger-year-2026-2026-02-10/</a>
+2. 내부 소식통에 따르면 초기 품질 개선을 반영하여 전사 보너스 상향을 추진하고 있습니다. — <a href="https://www.reuters.com/business/world-at-work/ford-boosts-companywide-bonus-initial-quality-improves-sources-say-2026-02-11/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/world-at-work/ford-boosts-companywide-bonus-initial-quality-improves-sources-say-2026-02-11/</a>
+3. 포드는 공급업체 구조조정 자금 지원 방안에 대해 협의 중이며 부품 공급 안정화를 목표로 하고 있습니다. — <a href="https://www.reuters.com/business/autos-transportation/ford-general-motors-talks-with-first-brands-over-rescue-financing-ft-reports-2026-01-27/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/autos-transportation/ford-general-motors-talks-with-first-brands-over-rescue-financing-ft-reports-2026-01-27/</a>
+4. 전기차 확대에 따른 생산 능력 확장 및 공장 업그레이드 계획이 지속적으로 보도되고 있습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-01/ford-ev-expansion" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-01/ford-ev-expansion</a>
+5. 대중 시장 전기차 경쟁 심화로 인한 가격 압박이 단기적 리스크로 작용할 수 있습니다. — <a href="https://www.nytimes.com/2026/02/15/business/ford-ev-competition.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/15/business/ford-ev-competition.html</a>
 
 ---
 
@@ -88,11 +88,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 나이키 소유의 컨버스는 조직 재정비 및 본사 인력 감축을 계획하고 있으며 이는 비용 구조 조정의 일환으로 보입니다. — https://www.reuters.com/business/retail-consumer/nike-owned-converse-realign-operations-trim-corporate-workforce-source-says-2026-02-13/
-2. 나이키는 잠재적 데이터 유출 의혹에 대해 내부 조사를 진행 중이며 고객 및 직원 데이터 노출 여부를 확인하고 있습니다. — https://www.reuters.com/business/retail-consumer/nike-investigates-potential-data-breach-2026-02-18/
-3. 애널리스트들은 지역별 수요 혼조를 반영하여 추정치를 하향 조정하고 있습니다. — https://www.wsj.com/articles/nike-earnings-reaction-2026
-4. 신제품 출시 초기 판매 실적은 일부 긍정적 신호를 보이고 있습니다. — https://www.cnbc.com/2026/02/16/nike-new-product-send-early-sales.html
-5. 공급망 정상화에 따라 재고 수준이 안정화되면서 마진 개선에 기여하고 있습니다. — https://www.nytimes.com/2026/02/12/business/nike-supply-chain.html
+1. 나이키 소유의 컨버스는 조직 재정비 및 본사 인력 감축을 계획하고 있으며 이는 비용 구조 조정의 일환으로 보입니다. — <a href="https://www.reuters.com/business/retail-consumer/nike-owned-converse-realign-operations-trim-corporate-workforce-source-says-2026-02-13/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/retail-consumer/nike-owned-converse-realign-operations-trim-corporate-workforce-source-says-2026-02-13/</a>
+2. 나이키는 잠재적 데이터 유출 의혹에 대해 내부 조사를 진행 중이며 고객 및 직원 데이터 노출 여부를 확인하고 있습니다. — <a href="https://www.reuters.com/business/retail-consumer/nike-investigates-potential-data-breach-2026-02-18/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/retail-consumer/nike-investigates-potential-data-breach-2026-02-18/</a>
+3. 애널리스트들은 지역별 수요 혼조를 반영하여 추정치를 하향 조정하고 있습니다. — <a href="https://www.wsj.com/articles/nike-earnings-reaction-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/nike-earnings-reaction-2026</a>
+4. 신제품 출시 초기 판매 실적은 일부 긍정적 신호를 보이고 있습니다. — <a href="https://www.cnbc.com/2026/02/16/nike-new-product-send-early-sales.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/16/nike-new-product-send-early-sales.html</a>
+5. 공급망 정상화에 따라 재고 수준이 안정화되면서 마진 개선에 기여하고 있습니다. — <a href="https://www.nytimes.com/2026/02/12/business/nike-supply-chain.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/12/business/nike-supply-chain.html</a>
 
 ---
 
@@ -111,11 +111,11 @@
 - 권고: 보유(실적 발표 후 재평가).
 
 3) 오늘의 뉴스
-1. 월스트리트저널(WSJ)은 엔비디아가 오픈AI에 대한 대규모 투자 계획을 보류했다고 보도하여 협상 및 자금 조달에 대한 불확실성이 제기되었습니다. — https://www.bloomberg.com/news/articles/2026-01-31/nvidia-pauses-plan-to-invest-100-billion-in-openai-wsj-says
-2. 엔비디아 경영진은 오픈AI에 대한 잠재적 신규 투자가 역대 최대 규모가 될 수 있다고 언급했습니다. — https://www.bloomberg.com/news/articles/2026-01-31/nvidia-to-join-openai-s-current-funding-round-huang-says
-3. 로이터는 엔비디아의 소프트웨어 및 하드웨어 실적이 AI 민감 장세에서 다음 시험대가 될 것이라고 전망했습니다. — https://www.reuters.com/business/wall-st-week-ahead-nvidia-software-reports-pose-next-tests-ai-sensitive-stock-2026-02-20/
-4. 미국 정부는 엔비디아의 첨단 AI 칩 중국 수출에 대한 검토를 착수하여 규제 리스크가 제기되고 있습니다. — https://www.reuters.com/world/china/us-launches-review-advanced-nvidia-ai-chip-sales-china-sources-say-2025-12-19/
-5. 투자 보류 보도 이후 엔비디아는 오픈AI와의 갈등 보도를 부인하며 시장 안정을 도모했습니다. — https://www.cnbc.com/2026/02/04/cnbc-daily-open-nvidia-denies-rift-with-openai-while-software-and-asset-management-stocks-plunge.html
+1. 월스트리트저널(WSJ)은 엔비디아가 오픈AI에 대한 대규모 투자 계획을 보류했다고 보도하여 협상 및 자금 조달에 대한 불확실성이 제기되었습니다. — <a href="https://www.bloomberg.com/news/articles/2026-01-31/nvidia-pauses-plan-to-invest-100-billion-in-openai-wsj-says" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-01-31/nvidia-pauses-plan-to-invest-100-billion-in-openai-wsj-says</a>
+2. 엔비디아 경영진은 오픈AI에 대한 잠재적 신규 투자가 역대 최대 규모가 될 수 있다고 언급했습니다. — <a href="https://www.bloomberg.com/news/articles/2026-01-31/nvidia-to-join-openai-s-current-funding-round-huang-says" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-01-31/nvidia-to-join-openai-s-current-funding-round-huang-says</a>
+3. 로이터는 엔비디아의 소프트웨어 및 하드웨어 실적이 AI 민감 장세에서 다음 시험대가 될 것이라고 전망했습니다. — <a href="https://www.reuters.com/business/wall-st-week-ahead-nvidia-software-reports-pose-next-tests-ai-sensitive-stock-2026-02-20/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/wall-st-week-ahead-nvidia-software-reports-pose-next-tests-ai-sensitive-stock-2026-02-20/</a>
+4. 미국 정부는 엔비디아의 첨단 AI 칩 중국 수출에 대한 검토를 착수하여 규제 리스크가 제기되고 있습니다. — <a href="https://www.reuters.com/world/china/us-launches-review-advanced-nvidia-ai-chip-sales-china-sources-say-2025-12-19/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/world/china/us-launches-review-advanced-nvidia-ai-chip-sales-china-sources-say-2025-12-19/</a>
+5. 투자 보류 보도 이후 엔비디아는 오픈AI와의 갈등 보도를 부인하며 시장 안정을 도모했습니다. — <a href="https://www.cnbc.com/2026/02/04/cnbc-daily-open-nvidia-denies-rift-with-openai-while-software-and-asset-management-stocks-plunge.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/04/cnbc-daily-open-nvidia-denies-rift-with-openai-while-software-and-asset-management-stocks-plunge.html</a>
 
 ---
 
@@ -132,11 +132,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 기술주 주도로 S&P 500이 소폭 상승하였으며 이로 인해 Vanguard S&P 500 ETF의 성과가 개선되었습니다. — https://www.reuters.com/markets/us/s-p-500-ticks-up-as-tech-leads-gains-2026-02-21/
-2. 최근 ETF 자금 흐름은 대형주 패시브 노출에 대한 투자자 선호를 반영하고 있습니다. — https://www.bloomberg.com/news/articles/2026-02-20/etf-flows
-3. 거시 지표가 혼재된 가운데 시장은 위험자산 선호로 기울고 있다는 평가가 있습니다. — https://www.wsj.com/articles/market-macro-update-2026
-4. 변동성 억제는 코어 ETF 전략을 지지하는 요인으로 작용하고 있습니다. — https://www.cnbc.com/2026/02/20/volatility-market-update.html
-5. 채권 수익률 안정은 주식 멀티플과 ETF 성과를 지지하는 환경을 제공하고 있습니다. — https://www.nytimes.com/2026/02/20/business/markets/bond-yields-stabilize.html
+1. 기술주 주도로 S&P 500이 소폭 상승하였으며 이로 인해 Vanguard S&P 500 ETF의 성과가 개선되었습니다. — <a href="https://www.reuters.com/markets/us/s-p-500-ticks-up-as-tech-leads-gains-2026-02-21/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/markets/us/s-p-500-ticks-up-as-tech-leads-gains-2026-02-21/</a>
+2. 최근 ETF 자금 흐름은 대형주 패시브 노출에 대한 투자자 선호를 반영하고 있습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-20/etf-flows" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-20/etf-flows</a>
+3. 거시 지표가 혼재된 가운데 시장은 위험자산 선호로 기울고 있다는 평가가 있습니다. — <a href="https://www.wsj.com/articles/market-macro-update-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/market-macro-update-2026</a>
+4. 변동성 억제는 코어 ETF 전략을 지지하는 요인으로 작용하고 있습니다. — <a href="https://www.cnbc.com/2026/02/20/volatility-market-update.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/20/volatility-market-update.html</a>
+5. 채권 수익률 안정은 주식 멀티플과 ETF 성과를 지지하는 환경을 제공하고 있습니다. — <a href="https://www.nytimes.com/2026/02/20/business/markets/bond-yields-stabilize.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/20/business/markets/bond-yields-stabilize.html</a>
 
 ---
 
@@ -153,11 +153,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 알파벳의 광고 수익 둔화 신호가 보고되었으나 Google Cloud의 성장으로 일부 상쇄되고 있습니다. — https://www.reuters.com/technology/alphabet-ad-revenue-slow-cloud-growth-2026-02-20/
-2. 알파벳은 젬마이니 파트너십을 엔터프라이즈 고객으로 확대하여 젬마이니의 상용화를 추진하고 있습니다. — https://www.bloomberg.com/news/articles/2026-02-15/alphabet-gemini-enterprise
-3. 핵심 시장에 대한 반독점 조사가 지속되어 규제 리스크가 지속적으로 부각되고 있습니다. — https://www.wsj.com/articles/alphabet-antitrust-update-2026
-4. 하드웨어 로드맵 업데이트가 연말에 예정되어 있어 하드웨어 관련 수익에 영향을 미칠 가능성이 있습니다. — https://www.cnbc.com/2026/02/18/alphabet-hardware-update.html
-5. 광고 부문 약세에도 불구하고 AI 투자가 우선순위로 유지될 전망입니다. — https://www.nytimes.com/2026/02/19/technology/alphabet-ai-investment.html
+1. 알파벳의 광고 수익 둔화 신호가 보고되었으나 Google Cloud의 성장으로 일부 상쇄되고 있습니다. — <a href="https://www.reuters.com/technology/alphabet-ad-revenue-slow-cloud-growth-2026-02-20/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/technology/alphabet-ad-revenue-slow-cloud-growth-2026-02-20/</a>
+2. 알파벳은 젬마이니 파트너십을 엔터프라이즈 고객으로 확대하여 젬마이니의 상용화를 추진하고 있습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-15/alphabet-gemini-enterprise" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-15/alphabet-gemini-enterprise</a>
+3. 핵심 시장에 대한 반독점 조사가 지속되어 규제 리스크가 지속적으로 부각되고 있습니다. — <a href="https://www.wsj.com/articles/alphabet-antitrust-update-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/alphabet-antitrust-update-2026</a>
+4. 하드웨어 로드맵 업데이트가 연말에 예정되어 있어 하드웨어 관련 수익에 영향을 미칠 가능성이 있습니다. — <a href="https://www.cnbc.com/2026/02/18/alphabet-hardware-update.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/18/alphabet-hardware-update.html</a>
+5. 광고 부문 약세에도 불구하고 AI 투자가 우선순위로 유지될 전망입니다. — <a href="https://www.nytimes.com/2026/02/19/technology/alphabet-ai-investment.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/19/technology/alphabet-ai-investment.html</a>
 
 ---
 
@@ -174,11 +174,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 로이터는 아마존이 비용 절감을 위해 다음 주 수천 명의 본사 추가 감원 계획을 추진 중이라고 단독 보도했습니다. — https://www.reuters.com/business/world-at-work/amazon-plans-thousands-more-corporate-job-cuts-next-week-sources-say-2026-01-22/
-2. 최근 AWS 장애와 내부 AI 도구 연계 보도는 서비스 신뢰성에 대한 우려를 제기했습니다. — https://www.theguardian.com/technology/2026/feb/20/amazon-cloud-outages-ai-tools-amazon-web-services-aws
-3. AWS는 대형 엔터프라이즈 계약을 지속적으로 수주하고 있어 매출 전망을 지지하고 있습니다. — https://www.reuters.com/business/aws-large-contracts-2026
-4. 물류 효율화 노력은 소매 마진 개선에 기여하고 있다는 분석이 있습니다. — https://www.bloomberg.com/news/articles/2026-02-10/amazon-logistics
-5. 반독점 조사 등 규제 감독은 지속적으로 진행 중입니다. — https://www.nytimes.com/2026/02/12/business/antitrust-amazon.html
+1. 로이터는 아마존이 비용 절감을 위해 다음 주 수천 명의 본사 추가 감원 계획을 추진 중이라고 단독 보도했습니다. — <a href="https://www.reuters.com/business/world-at-work/amazon-plans-thousands-more-corporate-job-cuts-next-week-sources-say-2026-01-22/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/world-at-work/amazon-plans-thousands-more-corporate-job-cuts-next-week-sources-say-2026-01-22/</a>
+2. 최근 AWS 장애와 내부 AI 도구 연계 보도는 서비스 신뢰성에 대한 우려를 제기했습니다. — <a href="https://www.theguardian.com/technology/2026/feb/20/amazon-cloud-outages-ai-tools-amazon-web-services-aws" target="_blank" rel="noopener noreferrer">https://www.theguardian.com/technology/2026/feb/20/amazon-cloud-outages-ai-tools-amazon-web-services-aws</a>
+3. AWS는 대형 엔터프라이즈 계약을 지속적으로 수주하고 있어 매출 전망을 지지하고 있습니다. — <a href="https://www.reuters.com/business/aws-large-contracts-2026" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/aws-large-contracts-2026</a>
+4. 물류 효율화 노력은 소매 마진 개선에 기여하고 있다는 분석이 있습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-10/amazon-logistics" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-10/amazon-logistics</a>
+5. 반독점 조사 등 규제 감독은 지속적으로 진행 중입니다. — <a href="https://www.nytimes.com/2026/02/12/business/antitrust-amazon.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/12/business/antitrust-amazon.html</a>
 
 ---
 
@@ -195,11 +195,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 브로드컴은 엔터프라이즈 수요 강세로 반도체 및 소프트웨어 부문에서 견조한 주문을 보고했습니다. — https://www.reuters.com/technology/broadcom-enterprise-demand-2026-02-18/
-2. 견조한 가이던스 발표에 따라 애널리스트들의 추정치 상향이 이어졌습니다. — https://www.bloomberg.com/news/articles/2026-02-19/broadcom-analyst-upgrades
-3. 재무구조가 견조한 가운데 M&A 관련 소문이 지속되고 있습니다. — https://www.wsj.com/articles/broadcom-m-a-rumors-2026
-4. 공급망 개선은 생산 전망을 뒷받침하고 있습니다. — https://www.cnbc.com/2026/02/17/broadcom-supply-chain-update.html
-5. 엔터프라이즈 소프트웨어 구독 증가가 반복수익을 지원하고 있습니다. — https://www.nytimes.com/2026/02/16/business/broadcom-software.html
+1. 브로드컴은 엔터프라이즈 수요 강세로 반도체 및 소프트웨어 부문에서 견조한 주문을 보고했습니다. — <a href="https://www.reuters.com/technology/broadcom-enterprise-demand-2026-02-18/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/technology/broadcom-enterprise-demand-2026-02-18/</a>
+2. 견조한 가이던스 발표에 따라 애널리스트들의 추정치 상향이 이어졌습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-19/broadcom-analyst-upgrades" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-19/broadcom-analyst-upgrades</a>
+3. 재무구조가 견조한 가운데 M&A 관련 소문이 지속되고 있습니다. — <a href="https://www.wsj.com/articles/broadcom-m-a-rumors-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/broadcom-m-a-rumors-2026</a>
+4. 공급망 개선은 생산 전망을 뒷받침하고 있습니다. — <a href="https://www.cnbc.com/2026/02/17/broadcom-supply-chain-update.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/17/broadcom-supply-chain-update.html</a>
+5. 엔터프라이즈 소프트웨어 구독 증가가 반복수익을 지원하고 있습니다. — <a href="https://www.nytimes.com/2026/02/16/business/broadcom-software.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/16/business/broadcom-software.html</a>
 
 ---
 
@@ -216,11 +216,11 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. CONY는 벤치마크 노출을 선호하는 투자자 유입으로 자금 유입이 발생했습니다. — https://www.reuters.com/markets/etf/cony-inflows-2026-02-21/
-2. 다음 분기 예정된 지수 리밸런스가 CONY의 보유 구성에 영향을 미칠 수 있습니다. — https://www.bloomberg.com/news/articles/2026-02-10/index-rebalance
-3. 거시 환경은 패시브 대형주 전략에 우호적으로 평가되고 있습니다. — https://www.wsj.com/articles/market-passive-etf-update-2026
-4. ETF 수수료 경쟁은 투자자 유치의 주요 요인으로 남아 있습니다. — https://www.cnbc.com/2026/02/14/etf-fees-and-competition.html
-5. CONY의 유동성 프로필은 안정적입니다. — https://www.nytimes.com/2026/02/18/business/etf-liquidity.html
+1. CONY는 벤치마크 노출을 선호하는 투자자 유입으로 자금 유입이 발생했습니다. — <a href="https://www.reuters.com/markets/etf/cony-inflows-2026-02-21/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/markets/etf/cony-inflows-2026-02-21/</a>
+2. 다음 분기 예정된 지수 리밸런스가 CONY의 보유 구성에 영향을 미칠 수 있습니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-10/index-rebalance" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-10/index-rebalance</a>
+3. 거시 환경은 패시브 대형주 전략에 우호적으로 평가되고 있습니다. — <a href="https://www.wsj.com/articles/market-passive-etf-update-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/market-passive-etf-update-2026</a>
+4. ETF 수수료 경쟁은 투자자 유치의 주요 요인으로 남아 있습니다. — <a href="https://www.cnbc.com/2026/02/14/etf-fees-and-competition.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/14/etf-fees-and-competition.html</a>
+5. CONY의 유동성 프로필은 안정적입니다. — <a href="https://www.nytimes.com/2026/02/18/business/etf-liquidity.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/18/business/etf-liquidity.html</a>
 
 ---
 
@@ -237,10 +237,10 @@
 - 권고: 보유.
 
 3) 오늘의 뉴스
-1. 이튼은 단기적 산업 주문 둔화를 보고했으나 핵심 수요는 지속되고 있다고 밝혔습니다. — https://www.reuters.com/business/energy/eaton-orders-slow-2026-02-19/
-2. 주요 제품 인증 획득이 상업 파이프라인 확대를 지원할 전망입니다. — https://www.bloomberg.com/news/articles/2026-02-12/eaton-certifications
-3. 애널리스트들은 단기 성장에 대해 신중하나 장기적으로는 긍정적 관점을 유지하고 있습니다. — https://www.wsj.com/articles/eaton-analyst-update-2026
-4. 공급망 안정화는 납품 일정에 도움을 주고 있습니다. — https://www.cnbc.com/2026/02/15/eaton-supply-chain.html
-5. 인프라 투자 추세는 장기적으로 이튼의 수요 기반을 지원할 것으로 평가됩니다. — https://www.nytimes.com/2026/02/14/business/infrastructure-eaton.html
+1. 이튼은 단기적 산업 주문 둔화를 보고했으나 핵심 수요는 지속되고 있다고 밝혔습니다. — <a href="https://www.reuters.com/business/energy/eaton-orders-slow-2026-02-19/" target="_blank" rel="noopener noreferrer">https://www.reuters.com/business/energy/eaton-orders-slow-2026-02-19/</a>
+2. 주요 제품 인증 획득이 상업 파이프라인 확대를 지원할 전망입니다. — <a href="https://www.bloomberg.com/news/articles/2026-02-12/eaton-certifications" target="_blank" rel="noopener noreferrer">https://www.bloomberg.com/news/articles/2026-02-12/eaton-certifications</a>
+3. 애널리스트들은 단기 성장에 대해 신중하나 장기적으로는 긍정적 관점을 유지하고 있습니다. — <a href="https://www.wsj.com/articles/eaton-analyst-update-2026" target="_blank" rel="noopener noreferrer">https://www.wsj.com/articles/eaton-analyst-update-2026</a>
+4. 공급망 안정화는 납품 일정에 도움을 주고 있습니다. — <a href="https://www.cnbc.com/2026/02/15/eaton-supply-chain.html" target="_blank" rel="noopener noreferrer">https://www.cnbc.com/2026/02/15/eaton-supply-chain.html</a>
+5. 인프라 투자 추세는 장기적으로 이튼의 수요 기반을 지원할 것으로 평가됩니다. — <a href="https://www.nytimes.com/2026/02/14/business/infrastructure-eaton.html" target="_blank" rel="noopener noreferrer">https://www.nytimes.com/2026/02/14/business/infrastructure-eaton.html</a>
 
 ---
