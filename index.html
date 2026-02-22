@@ -7,90 +7,55 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --sidebar-bg: #1a202c;
-            --sidebar-text: #a0aec0;
-            --sidebar-active: #2d3748;
-            --accent: #3182ce;
-            --bg: #f7fafc;
-            --header-height: 60px;
-        }
-        * { box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: var(--bg); color: #2d3748; display: flex; height: 100vh; overflow: hidden; }
-        
-        .sidebar { width: 260px; background: var(--sidebar-bg); color: var(--sidebar-text); display: flex; flex-direction: column; flex-shrink: 0; }
-        .logo { height: var(--header-height); display: flex; align-items: center; padding: 0 1.5rem; font-weight: bold; color: white; font-size: 1.2rem; border-bottom: 1px solid #2d3748; }
-        .logo i { margin-right: 10px; color: var(--accent); }
-        .menu { flex: 1; overflow-y: auto; padding: 1rem 0; }
-        .menu-label { padding: 0.5rem 1.5rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 1rem; }
-        .menu-item { padding: 0.75rem 1.5rem; cursor: pointer; display: flex; align-items: center; transition: 0.2s; }
-        .menu-item:hover { background: #2d3748; color: white; }
-        .menu-item.active { background: var(--accent); color: white; }
-        .menu-item i { width: 20px; margin-right: 10px; text-align: center; }
-        
-        .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
-        .header { height: var(--header-height); background: white; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; flex-shrink: 0; }
-        .header-title { font-weight: 600; font-size: 1.1rem; }
-        .content-scroll { flex: 1; overflow-y: auto; padding: 2rem; }
-        
-        /* Widgets */
-        .market-overview { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 2rem; overflow: hidden; }
-        .widget-header { padding: 1rem 1.5rem; border-bottom: 1px solid #e2e8f0; font-weight: 600; color: #4a5568; background: #fcfcfc; display:flex; justify-content: space-between; }
-
-        .report-view { background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; padding: 3rem; max-width: 900px; margin: 0 auto; }
-        .markdown-body { line-height: 1.7; font-size: 16px; }
-        .markdown-body h1 { border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-top: 0; }
-        .markdown-body h2 { margin-top: 2.5rem; margin-bottom: 1rem; color: #2c5282; border-left: 4px solid #2c5282; padding-left: 10px; }
-        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.95rem; }
-        .markdown-body th { background: #f7fafc; color: #4a5568; font-weight: 600; text-align: right; padding: 0.75rem 1rem; border-bottom: 2px solid #e2e8f0; }
-        .markdown-body td { padding: 0.75rem 1rem; border-bottom: 1px solid #e2e8f0; text-align: right; }
-        .markdown-body td:first-child, .markdown-body th:first-child { text-align: left; }
-        .markdown-body a { color: #3182ce; text-decoration: none; }
-        .markdown-body a:hover { text-decoration: underline; }
-
-        .loading-overlay { display: flex; justify-content: center; align-items: center; height: 200px; color: #718096; }
-
-        @media (max-width: 768px) {
-            body { flex-direction: column; height: auto; overflow: auto; }
-            .sidebar { width: 100%; height: auto; }
-            .main { height: auto; }
-            .content-scroll { overflow: visible; }
-        }
+        :root { --sidebar-bg: #1a202c; --sidebar-text: #a0aec0; --active: #3182ce; --bg: #f7fafc; }
+        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin:0; background:var(--bg); color:#2d3748; display:flex; height:100vh; overflow:hidden; }
+        .sidebar { width:260px; background:var(--sidebar-bg); color:var(--sidebar-text); display:flex; flex-direction:column; flex-shrink:0; }
+        .logo { height:60px; display:flex; align-items:center; padding:0 1.5rem; font-weight:bold; color:white; font-size:1.2rem; border-bottom:1px solid #2d3748; }
+        .menu { flex:1; overflow-y:auto; padding:1rem 0; }
+        .menu-item { padding:0.75rem 1.5rem; cursor:pointer; display:flex; align-items:center; transition:0.2s; }
+        .menu-item:hover { background:#2d3748; color:white; }
+        .menu-item.active { background:var(--active); color:white; }
+        .main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+        .header { height:60px; background:white; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; flex-shrink:0; }
+        .content-scroll { flex:1; overflow-y:auto; padding:2rem; }
+        .widget-box { background:white; border-radius:8px; border:1px solid #e2e8f0; margin-bottom:2rem; overflow:hidden; }
+        .report-view { background:white; border-radius:8px; border:1px solid #e2e8f0; padding:3rem; max-width:900px; margin:0 auto; }
+        .loading { text-align:center; padding:2rem; color:#718096; }
+        /* Markdown */
+        .markdown-body { line-height:1.7; }
+        .markdown-body h1, .markdown-body h2 { border-bottom:1px solid #e2e8f0; padding-bottom:0.3em; }
+        .markdown-body table { width:100%; border-collapse:collapse; margin:1rem 0; }
+        .markdown-body th, .markdown-body td { border:1px solid #e2e8f0; padding:0.6rem 1rem; }
+        .markdown-body th { background:#f7fafc; }
+        .markdown-body a { color: #3182ce; }
+        @media (max-width:768px) { body{flex-direction:column; overflow:auto;} .sidebar{width:100%; height:auto;} .content-scroll{overflow:visible;} }
     </style>
 </head>
 <body>
 
 <div class="sidebar">
-    <div class="logo"><i class="fas fa-chart-line"></i> PRESTIGE</div>
-    <div class="menu">
-        <div class="menu-label">Reports</div>
-        <div id="report-menu">Loading...</div>
-    </div>
+    <div class="logo"><i class="fas fa-chart-line" style="margin-right:10px; color:#3182ce;"></i> PRESTIGE</div>
+    <div class="menu" id="report-menu">Loading...</div>
 </div>
 
 <div class="main">
     <header class="header">
-        <div class="header-title" id="page-title">Dashboard</div>
-        <div style="font-size:0.9rem; color:#718096;"><i class="far fa-clock"></i> <span id="current-time"></span></div>
+        <div style="font-weight:600; font-size:1.1rem;" id="page-title">Dashboard</div>
+        <div style="font-size:0.9rem; color:#718096;" id="current-time"></div>
     </header>
 
     <div class="content-scroll">
-        <!-- Live Prices Widget (TradingView) -->
-        <div class="market-overview">
-            <div class="widget-header">
-                <span><i class="fas fa-bolt"></i> Live Portfolio Prices</span>
-                <span style="font-size:0.8rem; font-weight:normal;">Data via TradingView</span>
-            </div>
+        <!-- Live Prices Widget -->
+        <div class="widget-box">
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
               {
               "width": "100%",
-              "height": "350",
+              "height": 350,
               "symbolsGroups": [
                 {
                   "name": "US Stocks",
-                  "originalName": "US Stocks",
                   "symbols": [
                     { "name": "NASDAQ:AAPL", "displayName": "Apple" },
                     { "name": "NYSE:DIS", "displayName": "Disney" },
@@ -109,7 +74,6 @@
                 },
                 {
                   "name": "Korea Stocks",
-                  "originalName": "Korea Stocks",
                   "symbols": [
                     { "name": "KRX:088980", "displayName": "Macquarie Infra" },
                     { "name": "KRX:360200" },
@@ -139,74 +103,62 @@
         </div>
 
         <div id="report-container" class="report-view">
-            <div class="loading-overlay">Select a report to view details.</div>
+            <div class="loading">Select a report to view details.</div>
         </div>
     </div>
 </div>
 
 <script>
-    function updateTime() {
-        const now = new Date();
-        document.getElementById('current-time').innerText = now.toLocaleString();
-    }
-    setInterval(updateTime, 1000);
-    updateTime();
+    setInterval(() => document.getElementById('current-time').innerText = new Date().toLocaleString(), 1000);
 
     async function init() {
         const menu = document.getElementById('report-menu');
         try {
-            const response = await fetch('index.md?t=' + Date.now());
-            if (!response.ok) throw new Error('Failed to load index');
-            const text = await response.text();
+            const res = await fetch('index.md?t=' + Date.now());
+            if (!res.ok) throw new Error('Index load failed');
+            const text = await res.text();
             
             const reports = [];
             text.split('\n').forEach(line => {
-                const match = line.match(/- \[(.*?)\]\((.*?)\)/);
-                if (match) {
-                    let title = match[1];
-                    let url = match[2];
-                    if (url.includes('/blob/gh-pages/')) {
-                        url = url.split('/blob/gh-pages/')[1];
-                    }
-                    reports.push({ title, url });
+                const m = line.match(/- \[(.*?)\]\((.*?)\)/);
+                if (m) {
+                    let url = m[2];
+                    if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
+                    reports.push({ title: m[1], url: url });
                 }
             });
 
             menu.innerHTML = '';
             reports.forEach((r, idx) => {
-                const item = document.createElement('div');
-                item.className = 'menu-item';
-                item.innerHTML = `<i class="fas fa-file-contract"></i> ${r.title}`;
-                item.onclick = () => {
-                    document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
-                    item.classList.add('active');
+                const div = document.createElement('div');
+                div.className = 'menu-item';
+                div.innerHTML = `<i class="fas fa-file-alt" style="margin-right:10px; width:20px;"></i> ${r.title}`;
+                div.onclick = () => {
+                    document.querySelectorAll('.menu-item').forEach(e => e.classList.remove('active'));
+                    div.classList.add('active');
                     loadReport(r.url, r.title);
                 };
-                menu.appendChild(item);
-                
-                if (idx === 0) item.click();
+                menu.appendChild(div);
+                if (idx === 0) div.click();
             });
-
         } catch (e) {
-            menu.innerHTML = '<div style="padding:1rem; color:red">Error loading menu</div>';
+            menu.innerHTML = '<p style="padding:1rem; color:red">Error</p>';
         }
     }
 
     async function loadReport(url, title) {
-        const container = document.getElementById('report-container');
         document.getElementById('page-title').innerText = title;
-        container.innerHTML = '<div class="loading-overlay"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
-        
+        const container = document.getElementById('report-container');
+        container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
         try {
-            const res = await fetch(url + '?t=' + Date.now());
-            if (!res.ok) throw new Error('Failed to fetch report');
+            const res = await fetch(url);
+            if (!res.ok) throw new Error('Load failed');
             const md = await res.text();
             container.innerHTML = marked.parse(md);
         } catch (e) {
-            container.innerHTML = `<p style="color:red; padding:2rem;">Error: ${e.message}</p>`;
+            container.innerHTML = `<p style="color:red">Error: ${e.message}</p>`;
         }
     }
-
     init();
 </script>
 </body>
