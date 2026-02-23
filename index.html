@@ -240,7 +240,11 @@
                 const nameLine = sec.split('\n')[0];
                 let name = nameLine.includes('—') ? nameLine.split('—')[1].trim() : nameLine.split(' ')[0];
                 if (name.includes('(')) name = name.split('(')[0].trim();
-                const rows = sec.match(/\| [^|]* \| [^|]* \| [^|]* \| [^|]* \|/g);
+                
+                let code = "";
+                const codeMatch = sec.match(/KRX:(\d+)/);
+                if (codeMatch) code = codeMatch[1];
+        const rows = sec.match(/\| [^|]* \| [^|]* \| [^|]* \| [^|]* \|/g);
                 let dataRow = rows ? rows[1] : null;
                 if (dataRow) {
                     const cols = dataRow.split('|').map(c => c.trim()).filter(c => c);
@@ -274,7 +278,7 @@
                     } catch(e) {}
 
                     const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${name}</td><td>${price}</td><td class="${colorClass}">${chg}</td><td class="${colorClass}">${pct}</td><td>${high}</td><td>${low}</td><td>${prev}</td>`;
+                    const nameHtml = code ? `<a href='https://finance.naver.com/item/main.naver?code=${code}' target='_blank' style='text-decoration:none; color:#2d3748; border-bottom:1px dotted #999;'>${name} <i class='fas fa-external-link-alt' style='font-size:0.7em;'></i></a>` : name; tr.innerHTML = `<td>${nameHtml}</td><td>${price}</td><td class="${colorClass}">${chg}</td><td class="${colorClass}">${pct}</td><td>${high}</td><td>${low}</td><td>${prev}</td>`;
                     tbody.appendChild(tr);
                 }
             });
