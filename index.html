@@ -213,49 +213,49 @@
         }
     }
 
-    async function loadKoreaData(url) {
+        async function loadKoreaData(url) {
         try {
-            const res = await fetch(url);
-            const md = await res.text();
+            // IGNORE url (which is the markdown report path)
+            // Fetch the dedicated JSON file instead
+            const res = await fetch('data/latest_kr_prices.json?t=' + Date.now());
+            if (!res.ok) throw new Error('Data file not found');
+            const data = await res.json();
+            
             const tbody = document.querySelector('#kr-stock-list tbody');
             tbody.innerHTML = '';
             
-            const sections = md.split('## KRX:');
-            sections.shift();
+            data.forEach(item => {
+                const code = item.code;
+                const name = item.name;
+                const price = item.price.toLocaleString();
+                const high = item.high.toLocaleString();
+                const low = item.low.toLocaleString();
+                const prev = item.prev.toLocaleString();
+                
+                const chgVal = item.change;
+                const rate = item.rate.toFixed(2);
+                
+                let colorClass = '';
+                let sign = '';
+                if (chgVal > 0) { colorClass = 'change-up'; sign = '+'; }
+                else if (chgVal < 0) { colorClass = 'change-down'; sign = '-'; }
+                
+                const chgStr = sign + chgVal.toLocaleString();
+                const pctStr = sign + rate + '%';
+                
+                const tr = document.createElement('tr');
+                const linkUrl = `https://finance.naver.com/item/main.naver?code=${code}`;
+                const nameHtml = `<a href="${linkUrl}" target="_blank" style="font-weight:600; color:#2b6cb0; text-decoration:none;">${name} <i class="fas fa-external-link-alt" style="font-size:0.7em; opacity:0.5;"></i></a>`;
+                
+                tr.innerHTML = `<td>${nameHtml}</td><td>${price}</td><td class="${colorClass}">${chgStr}</td><td class="${colorClass}">${pctStr}</td><td>${high}</td><td>${low}</td><td>${prev}</td>`;
+                tbody.appendChild(tr);
+            });
             
-            const tickers = [];
-
-            sections.forEach(sec => {
-                const nameLine = sec.split('\n')[0];
-                let name = nameLine.includes('—') ? nameLine.split('—')[1].trim() : nameLine.split(' ')[0];
-                if (name.includes('(')) name = name.split('(')[0].trim();
-                
-                // EXTRACT CODE
-                let code = "";
-                const codeMatch = sec.match(/KRX:(\d+)/);
-                if (codeMatch) code = codeMatch[1];
-                if (code) tickers.push(code);
-
-                const rows = sec.match(/\| [^|]* \| [^|]* \| [^|]* \| [^|]* \|/g);
-                let dataRow = rows ? rows[1] : null;
-                
-                if (dataRow) {
-                    const cols = dataRow.split('|').map(c => c.trim()).filter(c => c);
-                    const price = cols[0].replace(' KRW', '').replace('KRW', '').trim();
-                    const high = cols[2].replace(' KRW', '').replace('KRW', '').trim();
-                    const low = cols[3].replace(' KRW', '').replace('KRW', '').trim();
-                    
-                    let prev = '-';
-                    let chg = '-', pct = '-';
-                    let colorClass = '';
-                    const rawChg = cols[1];
-                    try {
-                        if (rawChg && rawChg !== '-') {
-                            if (rawChg.includes('(')) {
-                                const parts = rawChg.split('(');
-                                chg = parts[0].trim();
-                                pct = parts[1].replace(')', '').trim();
-                            } else { chg = rawChg; }
+        } catch (e) {
+            console.error("KR JSON load error", e);
+            document.querySelector('#kr-stock-list tbody').innerHTML = `<tr><td colspan="7" style="color:red">Loading failed: ${e.message}</td></tr>`;
+        }
+    } else { chg = rawChg; }
                             
                             if (chg.includes('+')) colorClass = 'change-up';
                             else if (chg.includes('-')) colorClass = 'change-down';
