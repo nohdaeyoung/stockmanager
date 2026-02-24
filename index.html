@@ -7,105 +7,337 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --sidebar-bg: #1a202c; --sidebar-text: #a0aec0; --active: #3182ce; --bg: #f7fafc; }
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin:0; background:var(--bg); color:#2d3748; display:flex; height:100vh; overflow:hidden; }
-        .sidebar { width:260px; background:var(--sidebar-bg); color:var(--sidebar-text); display:flex; flex-direction:column; flex-shrink:0; }
-        .logo { height:60px; display:flex; align-items:center; padding:0 1.5rem; font-weight:bold; color:white; font-size:1.2rem; border-bottom:1px solid #2d3748; }
-        .menu { flex:1; overflow-y:auto; padding:1rem 0; }
-        .menu-group { border-bottom: 1px solid #2d3748; }
-        .menu-header { padding: 0.8rem 1.5rem; font-size: 0.85rem; font-weight: 600; color: #cbd5e0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: background 0.2s; }
-        .menu-header:hover { background: #2d3748; color: white; }
-        .menu-header i { font-size: 0.8rem; transition: transform 0.2s; }
+        /* Modern Fintech Theme (Robinhood / Toss Securities Style) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        :root { 
+            --bg-color: #f3f4f6; /* Very light gray */
+            --surface-color: #ffffff;
+            --text-main: #111827;
+            --text-muted: #6b7280;
+            --primary-accent: #2563eb; /* Modern blue */
+            --positive: #059669; /* Fintech green */
+            --positive-bg: #d1fae5;
+            --negative: #dc2626; /* Fintech red */
+            --negative-bg: #fee2e2;
+            --border-color: #e5e7eb;
+            --radius-lg: 16px;
+            --radius-md: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            margin: 0; 
+            background: var(--bg-color); 
+            color: var(--text-main); 
+            display: flex; 
+            height: 100vh; 
+            overflow: hidden; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Sidebar */
+        .sidebar { 
+            width: 280px; 
+            background: var(--surface-color); 
+            border-right: 1px solid var(--border-color);
+            display: flex; 
+            flex-direction: column; 
+            flex-shrink: 0; 
+            z-index: 10;
+        }
+        .logo { 
+            height: 70px; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 1.5rem; 
+            font-weight: 700; 
+            color: var(--text-main); 
+            font-size: 1.25rem; 
+            letter-spacing: -0.025em;
+        }
+        .logo i { margin-right: 12px; color: var(--primary-accent); font-size: 1.4rem; }
+        .menu { flex: 1; overflow-y: auto; padding: 1rem 0; }
+        
+        .menu-group { margin-bottom: 0.5rem; }
+        .menu-header { 
+            padding: 0.75rem 1.5rem; 
+            font-size: 0.75rem; 
+            font-weight: 700; 
+            color: var(--text-muted); 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            transition: color 0.2s; 
+        }
+        .menu-header:hover { color: var(--text-main); }
+        .menu-header i { font-size: 0.8rem; transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .menu-header.collapsed i { transform: rotate(-90deg); }
-        .menu-items-container { display: block; overflow: hidden; }
+        .menu-items-container { display: block; overflow: hidden; transition: max-height 0.3s ease; }
         .menu-items-container.hidden { display: none; }
-        .menu-item { padding:0.75rem 1.5rem 0.75rem 2rem; cursor:pointer; display:flex; align-items:center; transition:0.2s; font-size: 0.9rem; border-left: 3px solid transparent; }
-        .menu-item:hover { background:#2d3748; color:white; }
-        .menu-item.active { background:#2a4365; color:white; border-left-color: var(--active); }
-        .main { flex:1; display:flex; flex-direction:column; overflow:hidden; }
-        .header { height:60px; background:white; border-bottom:1px solid #e2e8f0; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; flex-shrink:0; }
-        .content-scroll { flex:1; overflow-y:auto; padding:2rem; }
-        .widget-box { background:white; border-radius:8px; border:1px solid #e2e8f0; margin-bottom:2rem; overflow:hidden; display:flex; flex-direction:column; min-height: 420px; }
-        .widget-tabs { display: flex; background: #fcfcfc; border-bottom: 1px solid #e2e8f0; }
-        .widget-tab { padding: 1rem 1.5rem; cursor: pointer; font-weight: 600; color: #718096; border-right: 1px solid #e2e8f0; border-bottom: 2px solid transparent; transition: 0.2s; }
-        .widget-tab:hover { background: #f7fafc; color: #2d3748; }
-        .widget-tab.active { background: white; color: #3182ce; border-bottom-color: #3182ce; }
+        
+        .menu-item { 
+            padding: 0.75rem 1.5rem 0.75rem 2.5rem; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            transition: all 0.2s; 
+            font-size: 0.9rem; 
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+        }
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            opacity: 0.5;
+        }
+        .menu-item:hover { color: var(--text-main); background: #f9fafb; }
+        .menu-item.active { 
+            color: var(--primary-accent); 
+            background: #eff6ff; 
+            font-weight: 600;
+        }
+        .menu-item.active::before { background: var(--primary-accent); opacity: 1; height: 16px; border-radius: 2px; transform: translateY(-50%); top: 50%; }
+        
+        /* Main Content */
+        .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .header { 
+            height: 70px; 
+            background: var(--bg-color); /* Matches background for seamless look */
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 2.5rem; 
+            flex-shrink: 0; 
+        }
+        .header-title { font-weight: 700; font-size: 1.5rem; color: var(--text-main); letter-spacing: -0.025em; }
+        .content-scroll { flex: 1; overflow-y: auto; padding: 0 2.5rem 2.5rem 2.5rem; }
+        
+        /* Tabbed Widget Area */
+        .widget-box { 
+            background: var(--surface-color); 
+            border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow-sm); 
+            margin-bottom: 2.5rem; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 440px; 
+            border: 1px solid var(--border-color);
+        }
+        .widget-tabs { 
+            display: flex; 
+            background: var(--surface-color); 
+            border-bottom: 1px solid var(--border-color); 
+            padding: 0 1rem;
+        }
+        .widget-tab { 
+            padding: 1.25rem 1.5rem; 
+            cursor: pointer; 
+            font-weight: 600; 
+            color: var(--text-muted); 
+            border-bottom: 2px solid transparent; 
+            transition: all 0.2s; 
+            font-size: 0.95rem;
+        }
+        .widget-tab:hover { color: var(--text-main); }
+        .widget-tab.active { color: var(--primary-accent); border-bottom-color: var(--primary-accent); }
         .widget-content { padding: 0; flex: 1; display: none; }
-        .widget-content.active { display: block; }
-        .kr-table { width:100%; border-collapse:collapse; font-size:0.9rem; }
-        .kr-table th { background:#f7fafc; padding:0.8rem 1rem; text-align:right; font-weight:600; color:#718096; border-bottom:1px solid #e2e8f0; position:sticky; top:0; }
-        .kr-table th:first-child { text-align:left; }
-        .kr-table td { padding:0.8rem 1rem; border-bottom:1px solid #edf2f7; text-align:right; }
-        .kr-table td:first-child { text-align:left; font-weight:500; color:#2d3748; }
-        .kr-table-container { overflow-y:auto; max-height:360px; }
-        .change-up { color:#48bb78; font-weight:600; }
-        .change-down { color:#f56565; font-weight:600; }
-        .report-view { background:white; border-radius:8px; border:1px solid #e2e8f0; padding:3rem; max-width:900px; margin:0 auto; }
-        .loading { text-align:center; padding:2rem; color:#718096; }
-        .markdown-body { line-height:1.7; }
-        .markdown-body h1 { border-bottom:1px solid #e2e8f0; }
-        .markdown-body table { width:100%; border-collapse:collapse; margin:1rem 0; }
-        .markdown-body th, .markdown-body td { border:1px solid #e2e8f0; padding:0.6rem 1rem; }
-        .markdown-body th { background:#f7fafc; }
-        .markdown-body a { color: #3182ce; }
-        @media (max-width:768px) { body{flex-direction:column; overflow:auto;} .sidebar{width:100%; height:auto;} .content-scroll{overflow:visible;} }
+        .widget-content.active { display: block; animation: fadeIn 0.3s ease; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Fintech Table for KR Stocks */
+        .kr-table-container { overflow-y: auto; max-height: 380px; padding: 0 1rem 1rem 1rem; }
+        .kr-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.95rem; }
+        .kr-table th { 
+            background: var(--surface-color); 
+            padding: 1rem; 
+            text-align: right; 
+            font-weight: 500; 
+            color: var(--text-muted); 
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid var(--border-color); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1;
+        }
+        .kr-table th:first-child { text-align: left; }
+        .kr-table td { 
+            padding: 1rem; 
+            border-bottom: 1px solid #f3f4f6; 
+            text-align: right; 
+            font-weight: 500;
+        }
+        .kr-table tr:last-child td { border-bottom: none; }
+        .kr-table tr:hover td { background: #f9fafb; }
+        .kr-table td:first-child { text-align: left; font-weight: 600; color: var(--text-main); }
+        
+        /* Pill Badges for Change */
+        .change-pill {
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .change-up { color: var(--positive); background: var(--positive-bg); }
+        .change-down { color: var(--negative); background: var(--negative-bg); }
+        .change-neutral { color: var(--text-muted); background: #f3f4f6; }
+
+        /* Report View (Markdown) */
+        .report-view { 
+            background: var(--surface-color); 
+            border-radius: var(--radius-lg); 
+            box-shadow: var(--shadow-sm); 
+            border: 1px solid var(--border-color); 
+            padding: 3rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        .loading { text-align: center; padding: 4rem; color: var(--text-muted); font-weight: 500; }
+        
+        .markdown-body { line-height: 1.7; color: #374151; }
+        .markdown-body h1 { font-size: 1.8rem; font-weight: 700; color: var(--text-main); border-bottom: 2px solid var(--border-color); padding-bottom: 0.75rem; margin-top: 0; margin-bottom: 2rem; letter-spacing: -0.02em; }
+        .markdown-body h2 { font-size: 1.3rem; font-weight: 600; color: var(--text-main); margin-top: 2.5rem; margin-bottom: 1rem; display: flex; align-items: center; }
+        .markdown-body h2::before { content: ''; display: inline-block; width: 4px; height: 1.2em; background: var(--primary-accent); border-radius: 2px; margin-right: 12px; }
+        
+        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); }
+        .markdown-body th, .markdown-body td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border-color); text-align: right; }
+        .markdown-body th { background: #f9fafb; font-weight: 600; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .markdown-body tr:last-child td { border-bottom: none; }
+        .markdown-body td:first-child, .markdown-body th:first-child { text-align: left; font-weight: 500; }
+        
+        .markdown-body a { color: var(--primary-accent); text-decoration: none; font-weight: 500; }
+        .markdown-body a:hover { text-decoration: underline; }
+        .markdown-body ul { padding-left: 1.5rem; }
+        .markdown-body li { margin-bottom: 0.5rem; }
+
+        @media (max-width: 768px) { 
+            body { flex-direction: column; overflow: auto; } 
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); } 
+            .header { padding: 0 1.5rem; }
+            .content-scroll { padding: 0 1.5rem 1.5rem 1.5rem; overflow: visible; } 
+            .report-view { padding: 1.5rem; }
+        }
     </style>
 </head>
 <body>
+
 <div class="sidebar">
-    <div class="logo"><i class="fas fa-chart-line" style="margin-right:10px; color:#3182ce;"></i> PRESTIGE</div>
-    <div class="menu" id="report-menu">Loading...</div>
+    <div class="logo"><i class="fas fa-layer-group"></i> PRESTIGE</div>
+    <div class="menu" id="report-menu">
+        <div class="loading" style="padding: 2rem;">Loading...</div>
+    </div>
 </div>
+
 <div class="main">
     <header class="header">
-        <div style="font-weight:600; font-size:1.1rem;" id="page-title">Dashboard</div>
-        <div style="font-size:0.9rem; color:#718096;" id="current-time"></div>
+        <div class="header-title" id="page-title">Portfolio Dashboard</div>
+        <div style="font-size:0.85rem; color:var(--text-muted); font-weight:500;" id="current-time"></div>
     </header>
+
     <div class="content-scroll">
+        <!-- Tabbed Widget Container -->
         <div class="widget-box">
             <div class="widget-tabs">
                 <div class="widget-tab active" onclick="switchTab('us')">🇺🇸 US Stocks</div>
                 <div class="widget-tab" onclick="switchTab('kr')">🇰🇷 Korea Stocks</div>
             </div>
+
+            <!-- US Content -->
             <div id="tab-us" class="widget-content active">
                 <div class="tradingview-widget-container">
                   <div class="tradingview-widget-container__widget"></div>
                   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                   {
-                  "width": "100%", "height": 360,
-                  "symbolsGroups": [ { "name": "US Stocks", "symbols": [
-                        { "name": "NASDAQ:AAPL", "displayName": "Apple" }, { "name": "NYSE:DIS", "displayName": "Disney" }, { "name": "NYSE:F", "displayName": "Ford" }, { "name": "NYSE:NKE", "displayName": "Nike" },
-                        { "name": "NASDAQ:NVDA", "displayName": "NVIDIA" }, { "name": "NASDAQ:TSLA", "displayName": "Tesla" }, { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
-                        { "name": "NASDAQ:GOOGL", "displayName": "Google" }, { "name": "NASDAQ:AMZN", "displayName": "Amazon" }, { "name": "NASDAQ:PLTR", "displayName": "Palantir" },
-                        { "name": "NASDAQ:AVGO", "displayName": "Broadcom" }, { "name": "AMEX:CONY", "displayName": "Cony" }, { "name": "NYSE:ETN", "displayName": "Eaton" }
-                  ] } ],
-                  "showSymbolLogo": true, "isTransparent": false, "colorTheme": "light", "locale": "en"
+                  "width": "100%",
+                  "height": 380,
+                  "symbolsGroups": [
+                    {
+                      "name": "US Tech & Core",
+                      "symbols": [
+                        { "name": "NASDAQ:AAPL", "displayName": "Apple" },
+                        { "name": "NASDAQ:NVDA", "displayName": "NVIDIA" },
+                        { "name": "NASDAQ:TSLA", "displayName": "Tesla" },
+                        { "name": "NASDAQ:GOOGL", "displayName": "Alphabet" },
+                        { "name": "NASDAQ:AMZN", "displayName": "Amazon" },
+                        { "name": "NASDAQ:PLTR", "displayName": "Palantir" },
+                        { "name": "NASDAQ:AVGO", "displayName": "Broadcom" }
+                      ]
+                    },
+                    {
+                      "name": "Diversified & ETFs",
+                      "symbols": [
+                        { "name": "NYSE:DIS", "displayName": "Disney" },
+                        { "name": "NYSE:F", "displayName": "Ford" },
+                        { "name": "NYSE:NKE", "displayName": "Nike" },
+                        { "name": "NYSE:ETN", "displayName": "Eaton" },
+                        { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
+                        { "name": "AMEX:CONY", "displayName": "YieldMax CONY" }
+                      ]
+                    }
+                  ],
+                  "showSymbolLogo": true,
+                  "isTransparent": true,
+                  "colorTheme": "light",
+                  "locale": "en",
+                  "largeChartUrl": ""
                 }
                   </script>
                 </div>
             </div>
+
+            <!-- KR Content -->
             <div id="tab-kr" class="widget-content">
                 <div class="kr-table-container">
                     <table class="kr-table" id="kr-stock-list">
-                        <thead><tr><th>Company</th><th>Price</th><th>Chg</th><th>%</th><th>High</th><th>Low</th><th>Prev</th></tr></thead>
-                        <tbody><tr><td colspan="7" style="text-align:center; padding:2rem;">Loading data...</td></tr></tbody>
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>%</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Prev. Close</th>
+                            </tr>
+                        </thead>
+                        <tbody><tr><td colspan="7" class="loading">Loading live data...</td></tr></tbody>
                     </table>
                 </div>
             </div>
         </div>
+
         <div id="report-container" class="report-view">
-            <div class="loading">Select a report to view details.</div>
+            <div class="loading"><i class="fas fa-circle-notch fa-spin fa-2x"></i></div>
         </div>
     </div>
 </div>
-<script>
-    window.onerror = function(msg) { document.getElementById('report-menu').innerHTML = 'Error: ' + msg; };
 
-    setInterval(() => document.getElementById('current-time').innerText = new Date().toLocaleString(), 1000);
+<script>
+    setInterval(() => {
+        const options = { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+        document.getElementById('current-time').innerText = new Date().toLocaleString('en-US', options);
+    }, 1000);
 
     function switchTab(tab) {
         document.querySelectorAll('.widget-tab').forEach(el => el.classList.remove('active'));
         event.target.classList.add('active');
+        
         document.querySelectorAll('.widget-content').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + tab).classList.add('active');
     }
@@ -124,7 +356,6 @@
                     let title = m[1]; let url = m[2];
                     if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
                     let date = "Unknown";
-                    // Fixed Regex for Python string: \\d
                     let dateMatch = title.match(/(\d{4}-\d{2}-\d{2})/);
                     if (!dateMatch) dateMatch = url.match(/(\d{4}-\d{2}-\d{2})/);
                     if (dateMatch) date = dateMatch[1];
@@ -132,7 +363,7 @@
                 }
             });
 
-            // Start JSON fetch
+            // Start JSON fetch for KR Table
             loadKoreaData();
 
             const groups = {};
@@ -144,17 +375,31 @@
 
             menu.innerHTML = '';
             const sortedMonths = Object.keys(groups).sort().reverse();
+            
             sortedMonths.forEach((month, groupIdx) => {
                 const grpDiv = document.createElement('div'); grpDiv.className = 'menu-group';
+                
                 const header = document.createElement('div'); header.className = 'menu-header';
-                header.innerHTML = `<span>${month}</span> <i class="fas fa-chevron-down"></i>`;
+                // Format month nicely (e.g. "2026-02" -> "Feb 2026")
+                let displayMonth = month;
+                if(month.length === 7) {
+                    const d = new Date(month + "-01");
+                    displayMonth = d.toLocaleString('en-US', { month: 'long', year: 'numeric' });
+                }
+                header.innerHTML = `<span>${displayMonth}</span> <i class="fas fa-chevron-down"></i>`;
+                
                 const itemsContainer = document.createElement('div'); itemsContainer.className = 'menu-items-container';
                 if (groupIdx > 0) { itemsContainer.classList.add('hidden'); header.classList.add('collapsed'); }
-                header.onclick = () => { itemsContainer.classList.toggle('hidden'); header.classList.toggle('collapsed'); };
+                
+                header.onclick = () => { 
+                    itemsContainer.classList.toggle('hidden'); 
+                    header.classList.toggle('collapsed'); 
+                };
+                
                 groups[month].forEach((r) => {
                     const item = document.createElement('div'); item.className = 'menu-item';
                     let cleanTitle = r.title.replace(' Report', '');
-                    item.innerHTML = `<i class="fas fa-file-alt" style="margin-right:10px; width:15px; text-align:center;"></i> ${cleanTitle}`;
+                    item.innerHTML = `<i class="fas fa-file-invoice" style="display:none;"></i> ${cleanTitle}`;
                     item.onclick = () => {
                         document.querySelectorAll('.menu-item').forEach(e => e.classList.remove('active'));
                         item.classList.add('active');
@@ -162,11 +407,12 @@
                     };
                     itemsContainer.appendChild(item);
                 });
+                
                 grpDiv.appendChild(header); grpDiv.appendChild(itemsContainer); menu.appendChild(grpDiv);
             });
             if (menu.querySelector('.menu-item')) menu.querySelector('.menu-item').click();
         } catch (e) { 
-            menu.innerHTML = '<p style="padding:1rem; color:red">Error: ' + e.message + '</p>';
+            menu.innerHTML = '<div style="padding:1.5rem; color:var(--negative); font-size:0.9rem;"><i class="fas fa-exclamation-circle"></i> Failed to load menu</div>';
         }
     }
 
@@ -177,36 +423,52 @@
             const data = await res.json();
             const tbody = document.querySelector('#kr-stock-list tbody');
             tbody.innerHTML = '';
+            
             data.forEach(item => {
                 const code = item.code; const name = item.name;
                 const price = item.price.toLocaleString();
                 const high = item.high.toLocaleString(); const low = item.low.toLocaleString();
                 const prev = item.prev.toLocaleString();
                 const chgVal = item.change; const rate = item.rate.toFixed(2);
-                let colorClass = ''; let sign = '';
-                if (chgVal > 0) { colorClass = 'change-up'; sign = '+'; } else if (chgVal < 0) { colorClass = 'change-down'; sign = ''; }
-                const chgStr = sign + chgVal.toLocaleString(); const pctStr = sign + rate + '%';
+                
+                let colorClass = 'change-neutral'; 
+                let sign = '';
+                if (chgVal > 0) { colorClass = 'change-up'; sign = '+'; } 
+                else if (chgVal < 0) { colorClass = 'change-down'; sign = ''; }
+                
+                const chgStr = sign + chgVal.toLocaleString(); 
+                const pctStr = sign + rate + '%';
+                
                 const tr = document.createElement('tr');
                 const linkUrl = `https://finance.naver.com/item/main.naver?code=${code}`;
-                const nameHtml = `<a href="${linkUrl}" target="_blank" style="font-weight:600; color:#2b6cb0; text-decoration:none;">${name} <i class="fas fa-external-link-alt" style="font-size:0.7em; opacity:0.5;"></i></a>`;
-                tr.innerHTML = `<td>${nameHtml}</td><td>${price}</td><td class="${colorClass}">${chgStr}</td><td class="${colorClass}">${pctStr}</td><td>${high}</td><td>${low}</td><td>${prev}</td>`;
+                const nameHtml = `<a href="${linkUrl}" target="_blank" style="color:var(--text-main); font-weight:600; text-decoration:none;">${name}</a> <a href="${linkUrl}" target="_blank" style="color:var(--text-muted); margin-left:6px; opacity:0.6;"><i class="fas fa-external-link-alt" style="font-size:0.75rem;"></i></a>`;
+                
+                tr.innerHTML = `
+                    <td>${nameHtml}</td>
+                    <td style="font-weight:600;">₩${price}</td>
+                    <td><span class="change-pill ${colorClass}">${chgStr}</span></td>
+                    <td><span class="change-pill ${colorClass}">${pctStr}</span></td>
+                    <td style="color:var(--text-muted);">${high}</td>
+                    <td style="color:var(--text-muted);">${low}</td>
+                    <td style="color:var(--text-muted);">${prev}</td>
+                `;
                 tbody.appendChild(tr);
             });
         } catch (e) {
-            document.querySelector('#kr-stock-list tbody').innerHTML = `<tr><td colspan="7" style="color:red">Data load failed: ${e.message}</td></tr>`;
+            document.querySelector('#kr-stock-list tbody').innerHTML = `<tr><td colspan="7" class="loading" style="color:var(--negative);">Data sync failed: ${e.message}</td></tr>`;
         }
     }
 
     async function loadReport(url, title) {
         document.getElementById('page-title').innerText = title;
         const container = document.getElementById('report-container');
-        container.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin fa-2x"></i></div>';
+        container.innerHTML = '<div class="loading"><i class="fas fa-circle-notch fa-spin fa-2x"></i></div>';
         try {
             const res = await fetch(url + '?t=' + Date.now());
             if (!res.ok) throw new Error('Load failed');
             const md = await res.text();
             container.innerHTML = marked.parse(md);
-        } catch (e) { container.innerHTML = `<p style="color:red">Error: ${e.message}</p>`; }
+        } catch (e) { container.innerHTML = `<div style="color:var(--negative); padding:2rem;"><i class="fas fa-exclamation-triangle"></i> Error: ${e.message}</div>`; }
     }
     
     init();
