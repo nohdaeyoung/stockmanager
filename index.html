@@ -186,12 +186,6 @@
     .card-detail-item .dl { font-size: .75rem; color: var(--muted); margin-bottom: 4px; letter-spacing: .02em; text-transform: uppercase; }
     .card-detail-item .dv { font-family: var(--mono); font-size: .95rem; font-weight: 500; color: var(--text); }
 
-    /* ── TradingView Widget Container ── */
-    .tv-widget-wrap {
-      padding: 24px;
-      height: 600px;
-    }
-
     /* ── 모바일 FAB ── */
     .fab {
       display: none; position: fixed; bottom: calc(24px + env(safe-area-inset-bottom)); right: 20px;
@@ -223,7 +217,6 @@
       .last-update { display: none; }
       .table-wrap { display: none; }
       .mobile-list { display: block; }
-      .tv-widget-wrap { padding: 16px; height: 500px; }
       .fab { display: flex; }
     }
   </style>
@@ -239,7 +232,7 @@
 <!-- KPI -->
 <div class="kpi-grid">
   <div class="kpi-card">
-    <div class="label">Total Assets (KR)</div>
+    <div class="label">Total Assets</div>
     <div class="value gold" id="kpi-total">—</div>
   </div>
   <div class="kpi-card">
@@ -285,59 +278,39 @@
   <div class="mobile-list" id="kr-cards"></div>
 </div>
 
-<!-- 미국 패널 (TradingView Widget) -->
+<!-- 미국 패널 -->
 <div class="panel" id="panel-us">
-  <div class="tv-widget-wrap">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-      {
-      "width": "100%",
-      "height": "100%",
-      "symbolsGroups": [
-        {
-          "name": "US Tech & Core",
-          "symbols": [
-            { "name": "NASDAQ:AAPL", "displayName": "Apple Inc." },
-            { "name": "NASDAQ:NVDA", "displayName": "NVIDIA Corp." },
-            { "name": "NASDAQ:TSLA", "displayName": "Tesla Inc." },
-            { "name": "NASDAQ:GOOGL", "displayName": "Alphabet Inc." },
-            { "name": "NASDAQ:AMZN", "displayName": "Amazon.com Inc." },
-            { "name": "NASDAQ:PLTR", "displayName": "Palantir Technologies" },
-            { "name": "NASDAQ:AVGO", "displayName": "Broadcom Inc." }
-          ]
-        },
-        {
-          "name": "Diversified & ETFs",
-          "symbols": [
-            { "name": "NYSE:DIS", "displayName": "Walt Disney Co." },
-            { "name": "NYSE:F", "displayName": "Ford Motor Co." },
-            { "name": "NYSE:NKE", "displayName": "Nike Inc." },
-            { "name": "NYSE:ETN", "displayName": "Eaton Corp." },
-            { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
-            { "name": "AMEX:CONY", "displayName": "YieldMax CONY" }
-          ]
-        }
-      ],
-      "showSymbolLogo": true,
-      "isTransparent": true,
-      "colorTheme": "dark",
-      "locale": "en",
-      "largeChartUrl": ""
-    }
-      </script>
-    </div>
+  <!-- PC 테이블 -->
+  <div class="table-wrap">
+    <table id="tbl-us">
+      <thead><tr>
+        <th>Security</th><th>Last Price</th><th>Change</th><th>% Change</th>
+        <th>High</th><th>Low</th><th>Prev. Close</th>
+      </tr></thead>
+      <tbody id="us-tbody"><tr><td colspan="7" class="loading-msg">Loading market data...</td></tr></tbody>
+    </table>
   </div>
+  
+  <!-- 모바일 카드 -->
+  <div class="mobile-list" id="us-cards"></div>
 </div>
 
 <!-- 모바일 FAB -->
 <button class="fab" id="fab" title="Refresh"><i class="fas fa-sync-alt"></i></button>
 
 <script>
+let currentKRData = [];
+let currentUSData = [];
+let currentTab = 'kr';
+
 // ── 탭 전환 ──
 function switchTab(tab) {
+  currentTab = tab;
   document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
   document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + tab));
+  
+  // Update KPI based on active tab
+  updateKPI(tab === 'kr' ? currentKRData : currentUSData);
 }
 document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => { switchTab(btn.dataset.tab); }));
 
@@ -346,8 +319,8 @@ function setSpinning(on) {
   document.getElementById('refresh-btn').classList.toggle('spinning', on);
   document.getElementById('fab').classList.toggle('spinning', on);
 }
-document.getElementById('refresh-btn').addEventListener('click', loadKR);
-document.getElementById('fab').addEventListener('click', loadKR);
+document.getElementById('refresh-btn').addEventListener('click', loadAllData);
+document.getElementById('fab').addEventListener('click', loadAllData);
 
 // ── KPI 업데이트 ──
 function updateKPI(quotes) {
@@ -355,6 +328,11 @@ function updateKPI(quotes) {
   const up = valid.filter(q => (q.change || 0) > 0).length;
   const dn = valid.filter(q => (q.change || 0) < 0).length;
   const flat = valid.length - up - dn;
+  
+  // Tab Name logic
+  const tabName = currentTab === 'kr' ? 'Total Assets (KR)' : 'Total Assets (US)';
+  document.querySelector('.kpi-grid .kpi-card:nth-child(1) .label').textContent = tabName;
+  
   document.getElementById('kpi-total').textContent = valid.length;
   document.getElementById('kpi-up').textContent = up;
   document.getElementById('kpi-dn').textContent = dn;
@@ -362,16 +340,16 @@ function updateKPI(quotes) {
 }
 
 // ── 포맷 헬퍼 ──
-function fmtKRW(v) {
+function fmtNum(v, isUSD=false) {
   if (v == null || v === '' || v === 'N/A' || isNaN(v)) return '<span class="na">—</span>';
-  return Number(v).toLocaleString('ko-KR');
+  return isUSD ? Number(v).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : Number(v).toLocaleString('ko-KR');
 }
-function fmtChange(ch) {
+function fmtChange(ch, isUSD=false) {
   if (ch == null || isNaN(ch)) return '<span class="na">—</span>';
   const sign = ch > 0 ? '▲' : ch < 0 ? '▼' : '';
   const cls  = ch > 0 ? 'up' : ch < 0 ? 'dn' : '';
-  const val  = Math.abs(Number(ch)).toLocaleString('ko-KR');
-  return `<span class="${cls}">${sign} ${val}</span>`;
+  const val  = isUSD ? Math.abs(Number(ch)).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : Math.abs(Number(ch)).toLocaleString('ko-KR');
+  return `<span class="${cls}">${sign} ${isUSD ? '$' : ''}${val}</span>`;
 }
 function fmtPct(pct) {
   if (pct == null || isNaN(pct)) return '<span class="na">—</span>';
@@ -381,89 +359,163 @@ function fmtPct(pct) {
   return `<span class="${cls}">${sign}${n.toFixed(2)}%</span>`;
 }
 function naverLink(code) { return `https://finance.naver.com/item/main.naver?code=${code}`; }
+function yahooLink(code) { return `https://finance.yahoo.com/quote/${code}`; }
 
 // ── 모바일 카드 토글 ──
 window.toggleCard = function(el) {
   el.classList.toggle('expanded');
 }
 
-// ── 한국 데이터 로드 및 렌더 ──
-async function loadKR() {
+// ── 한국 데이터 렌더 ──
+function renderKR(data) {
+  currentKRData = data;
+  if(currentTab === 'kr') updateKPI(data);
+
+  // 데스크톱 테이블 렌더링
+  const tbody = document.getElementById('kr-tbody');
+  tbody.innerHTML = data.map(q => {
+    const ch = q.change || 0;
+    const rowCls = ch > 0 ? 'up-row' : ch < 0 ? 'dn-row' : 'flat-row';
+    return `<tr class="${rowCls}">
+      <td>
+        <a class="symbol-link" href="${naverLink(q.code)}" target="_blank" rel="noopener">${q.name}</a>
+        <span class="symbol-code">${q.code}</span>
+      </td>
+      <td>${fmtNum(q.price)}</td>
+      <td>${fmtChange(ch)}</td>
+      <td>${fmtPct(q.rate)}</td>
+      <td class="up">${fmtNum(q.high)}</td>
+      <td class="dn">${fmtNum(q.low)}</td>
+      <td style="color:var(--muted);">${fmtNum(q.prev)}</td>
+    </tr>`;
+  }).join('');
+
+  // 모바일 카드 렌더링
+  const cards = document.getElementById('kr-cards');
+  cards.innerHTML = data.map((q, i) => {
+    const ch = q.change || 0;
+    const cardCls = ch > 0 ? 'up-card' : ch < 0 ? 'dn-card' : 'flat-card';
+    return `<div class="stock-card ${cardCls}">
+      <div class="card-header" onclick="toggleCard(this.parentElement)">
+        <div class="card-left">
+          <div class="name">${q.name}</div>
+          <div class="code">${q.code}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="card-right">
+            <div class="card-price">${fmtNum(q.price)}</div>
+            <div class="card-change">${fmtChange(ch)} ${fmtPct(q.rate)}</div>
+          </div>
+          <span class="card-chevron"><i class="fas fa-chevron-down"></i></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-details">
+          <div class="card-detail-item"><div class="dl">Prev. Close</div><div class="dv">${fmtNum(q.prev)}</div></div>
+          <div class="card-detail-item"><div class="dl">Open</div><div class="dv">${fmtNum(q.open)}</div></div>
+          <div class="card-detail-item"><div class="dl">High</div><div class="dv up">${fmtNum(q.high)}</div></div>
+          <div class="card-detail-item"><div class="dl">Low</div><div class="dv dn">${fmtNum(q.low)}</div></div>
+        </div>
+        <div style="padding: 0 16px 16px;">
+          <a href="${naverLink(q.code)}" target="_blank" rel="noopener" style="display:block; text-align:center; padding:10px; background:var(--card-hover); border-radius:8px; color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:600; border:1px solid var(--border); transition:background 0.2s;">
+            View on Naver Finance <i class="fas fa-external-link-alt" style="margin-left:4px; font-size:0.8em; color:var(--muted);"></i>
+          </a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── 미국 데이터 렌더 ──
+function renderUS(data) {
+  currentUSData = data;
+  if(currentTab === 'us') updateKPI(data);
+
+  // 데스크톱 테이블 렌더링
+  const tbody = document.getElementById('us-tbody');
+  tbody.innerHTML = data.map(q => {
+    const ch = q.change || 0;
+    const rowCls = ch > 0 ? 'up-row' : ch < 0 ? 'dn-row' : 'flat-row';
+    return `<tr class="${rowCls}">
+      <td>
+        <a class="symbol-link" href="${yahooLink(q.code)}" target="_blank" rel="noopener">${q.name}</a>
+        <span class="symbol-code">${q.code}</span>
+      </td>
+      <td>$${fmtNum(q.price, true)}</td>
+      <td>${fmtChange(ch, true)}</td>
+      <td>${fmtPct(q.rate)}</td>
+      <td class="up">$${fmtNum(q.high, true)}</td>
+      <td class="dn">$${fmtNum(q.low, true)}</td>
+      <td style="color:var(--muted);">$${fmtNum(q.prev, true)}</td>
+    </tr>`;
+  }).join('');
+
+  // 모바일 카드 렌더링
+  const cards = document.getElementById('us-cards');
+  cards.innerHTML = data.map((q, i) => {
+    const ch = q.change || 0;
+    const cardCls = ch > 0 ? 'up-card' : ch < 0 ? 'dn-card' : 'flat-card';
+    return `<div class="stock-card ${cardCls}">
+      <div class="card-header" onclick="toggleCard(this.parentElement)">
+        <div class="card-left">
+          <div class="name">${q.name}</div>
+          <div class="code">${q.code}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div class="card-right">
+            <div class="card-price">$${fmtNum(q.price, true)}</div>
+            <div class="card-change">${fmtChange(ch, true)} ${fmtPct(q.rate)}</div>
+          </div>
+          <span class="card-chevron"><i class="fas fa-chevron-down"></i></span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-details">
+          <div class="card-detail-item"><div class="dl">Prev. Close</div><div class="dv">$${fmtNum(q.prev, true)}</div></div>
+          <div class="card-detail-item"><div class="dl">Open</div><div class="dv">—</div></div>
+          <div class="card-detail-item"><div class="dl">High</div><div class="dv up">$${fmtNum(q.high, true)}</div></div>
+          <div class="card-detail-item"><div class="dl">Low</div><div class="dv dn">$${fmtNum(q.low, true)}</div></div>
+        </div>
+        <div style="padding: 0 16px 16px;">
+          <a href="${yahooLink(q.code)}" target="_blank" rel="noopener" style="display:block; text-align:center; padding:10px; background:var(--card-hover); border-radius:8px; color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:600; border:1px solid var(--border); transition:background 0.2s;">
+            View on Yahoo Finance <i class="fas fa-external-link-alt" style="margin-left:4px; font-size:0.8em; color:var(--muted);"></i>
+          </a>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── 데이터 로드 ──
+async function loadAllData() {
   setSpinning(true);
   try {
-    const res = await fetch('data/latest_kr_prices.json?t=' + Date.now());
-    if (!res.ok) throw new Error('Data file not found');
-    const data = await res.json();
+    const krRes = fetch('data/latest_kr_prices.json?t=' + Date.now()).then(r => r.json());
+    const usRes = fetch('data/latest_us_prices.json?t=' + Date.now()).then(r => r.json());
     
-    updateKPI(data);
-
-    // 데스크톱 테이블 렌더링
-    const tbody = document.getElementById('kr-tbody');
-    tbody.innerHTML = data.map(q => {
-      const ch = q.change || 0;
-      const rowCls = ch > 0 ? 'up-row' : ch < 0 ? 'dn-row' : 'flat-row';
-      return `<tr class="${rowCls}">
-        <td>
-          <a class="symbol-link" href="${naverLink(q.code)}" target="_blank" rel="noopener">${q.name}</a>
-          <span class="symbol-code">${q.code}</span>
-        </td>
-        <td>${fmtKRW(q.price)}</td>
-        <td>${fmtChange(ch)}</td>
-        <td>${fmtPct(q.rate)}</td>
-        <td class="up">${fmtKRW(q.high)}</td>
-        <td class="dn">${fmtKRW(q.low)}</td>
-        <td style="color:var(--muted);">${fmtKRW(q.prev)}</td>
-      </tr>`;
-    }).join('');
-
-    // 모바일 카드 렌더링
-    const cards = document.getElementById('kr-cards');
-    cards.innerHTML = data.map((q, i) => {
-      const ch = q.change || 0;
-      const cardCls = ch > 0 ? 'up-card' : ch < 0 ? 'dn-card' : 'flat-card';
-      return `<div class="stock-card ${cardCls}">
-        <div class="card-header" onclick="toggleCard(this.parentElement)">
-          <div class="card-left">
-            <div class="name">${q.name}</div>
-            <div class="code">${q.code}</div>
-          </div>
-          <div style="display:flex;align-items:center;gap:6px">
-            <div class="card-right">
-              <div class="card-price">${fmtKRW(q.price)}</div>
-              <div class="card-change">${fmtChange(ch)} ${fmtPct(q.rate)}</div>
-            </div>
-            <span class="card-chevron"><i class="fas fa-chevron-down"></i></span>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-details">
-            <div class="card-detail-item"><div class="dl">Prev. Close</div><div class="dv">${fmtKRW(q.prev)}</div></div>
-            <div class="card-detail-item"><div class="dl">Open</div><div class="dv">${fmtKRW(q.open)}</div></div>
-            <div class="card-detail-item"><div class="dl">High</div><div class="dv up">${fmtKRW(q.high)}</div></div>
-            <div class="card-detail-item"><div class="dl">Low</div><div class="dv dn">${fmtKRW(q.low)}</div></div>
-          </div>
-          <div style="padding: 0 16px 16px;">
-            <a href="${naverLink(q.code)}" target="_blank" rel="noopener" style="display:block; text-align:center; padding:10px; background:var(--card-hover); border-radius:8px; color:var(--text); text-decoration:none; font-size:0.85rem; font-weight:600; border:1px solid var(--border); transition:background 0.2s;">
-              View on Naver Finance <i class="fas fa-external-link-alt" style="margin-left:4px; font-size:0.8em; color:var(--muted);"></i>
-            </a>
-          </div>
-        </div>
-      </div>`;
-    }).join('');
+    const [krData, usData] = await Promise.all([
+        krRes.catch(e => { console.error("KR data error", e); return []; }),
+        usRes.catch(e => { console.error("US data error", e); return []; })
+    ]);
+    
+    if (krData.length > 0) renderKR(krData);
+    else document.getElementById('kr-tbody').innerHTML = `<tr><td colspan="7" class="error-msg"><i class="fas fa-exclamation-triangle"></i> Failed to load KR data</td></tr>`;
+    
+    if (usData.length > 0) renderUS(usData);
+    else document.getElementById('us-tbody').innerHTML = `<tr><td colspan="7" class="error-msg"><i class="fas fa-exclamation-triangle"></i> Failed to load US data</td></tr>`;
 
     const now = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
     document.getElementById('last-update').textContent = 'Last updated ' + now;
 
   } catch (e) {
-    document.getElementById('kr-tbody').innerHTML = `<tr><td colspan="7" class="error-msg"><i class="fas fa-exclamation-triangle"></i> Failed to load data: ${e.message}</td></tr>`;
-    document.getElementById('kr-cards').innerHTML = `<div class="error-msg"><i class="fas fa-exclamation-triangle"></i> Failed to load data</div>`;
+    console.error("Load all error", e);
   }
   setSpinning(false);
 }
 
 // 초기 로드
-loadKR();
-setInterval(loadKR, 60000); // 1분마다 갱신 시도
+loadAllData();
+setInterval(loadAllData, 60000); // 1분마다 갱신 시도
 </script>
 </body>
 </html>
