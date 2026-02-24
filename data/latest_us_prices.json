@@ -1,0 +1,132 @@
+[
+  {
+    "code": "AAPL",
+    "name": "Apple Inc.",
+    "price": 266.18,
+    "change": 266.18,
+    "rate": 0,
+    "high": 269.43,
+    "low": 263.381,
+    "prev": 0
+  },
+  {
+    "code": "NVDA",
+    "name": "NVIDIA Corp.",
+    "price": 191.55,
+    "change": 191.55,
+    "rate": 0,
+    "high": 193.95,
+    "low": 189.575,
+    "prev": 0
+  },
+  {
+    "code": "TSLA",
+    "name": "Tesla Inc.",
+    "price": 399.83,
+    "change": 399.83,
+    "rate": 0,
+    "high": 407.7,
+    "low": 394.04,
+    "prev": 0
+  },
+  {
+    "code": "GOOGL",
+    "name": "Alphabet Inc.",
+    "price": 311.49,
+    "change": 311.49,
+    "rate": 0,
+    "high": 319.515,
+    "low": 309.865,
+    "prev": 0
+  },
+  {
+    "code": "AMZN",
+    "name": "Amazon.com Inc.",
+    "price": 205.27,
+    "change": 205.27,
+    "rate": 0,
+    "high": 208.43,
+    "low": 203.11,
+    "prev": 0
+  },
+  {
+    "code": "PLTR",
+    "name": "Palantir Technologies",
+    "price": 130.6,
+    "change": 130.6,
+    "rate": 0,
+    "high": 132.0,
+    "low": 127.39,
+    "prev": 0
+  },
+  {
+    "code": "AVGO",
+    "name": "Broadcom Inc.",
+    "price": 330.34,
+    "change": 330.34,
+    "rate": 0,
+    "high": 338.5,
+    "low": 325.32,
+    "prev": 0
+  },
+  {
+    "code": "DIS",
+    "name": "Walt Disney Co.",
+    "price": 104.41,
+    "change": 104.41,
+    "rate": 0,
+    "high": 105.19,
+    "low": 102.96,
+    "prev": 0
+  },
+  {
+    "code": "F",
+    "name": "Ford Motor Co.",
+    "price": 13.64,
+    "change": 13.64,
+    "rate": 0,
+    "high": 14.04,
+    "low": 13.57,
+    "prev": 0
+  },
+  {
+    "code": "NKE",
+    "name": "Nike Inc.",
+    "price": 63.09,
+    "change": 63.09,
+    "rate": 0,
+    "high": 64.97,
+    "low": 62.05,
+    "prev": 0
+  },
+  {
+    "code": "ETN",
+    "name": "Eaton Corp.",
+    "price": 362.05,
+    "change": 362.05,
+    "rate": 0,
+    "high": 368.535,
+    "low": 359.84,
+    "prev": 0
+  },
+  {
+    "code": "VOO",
+    "name": "Vanguard S&P 500",
+    "price": 627.63,
+    "change": 627.63,
+    "rate": 0,
+    "high": 634.61,
+    "low": 625.75,
+    "prev": 0
+  },
+  {
+    "code": "CONY",
+    "name": "YieldMax CONY",
+    "price": 25.98,
+    "change": 25.98,
+    "rate": 0,
+    "high": 27.095,
+    "low": 25.76,
+    "prev": 0
+  }
+]

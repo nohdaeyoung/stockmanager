@@ -91,7 +91,7 @@
         .widget-content { padding: 0; flex: 1; display: none; }
         .widget-content.active { display: block; }
         
-        /* Formal Table for KR Stocks */
+        /* Formal Table for Stocks */
         .kr-table-container { overflow-y: auto; max-height: calc(100vh - 200px); padding: 1rem; }
         .kr-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         .kr-table th { 
@@ -148,44 +148,21 @@
 
             <!-- US Content -->
             <div id="tab-us" class="widget-content active">
-                <div class="tradingview-widget-container">
-                  <div class="tradingview-widget-container__widget"></div>
-                  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-                  {
-                  "width": "100%",
-                  "height": "100%",
-                  "symbolsGroups": [
-                    {
-                      "name": "US Tech & Core",
-                      "symbols": [
-                        { "name": "NASDAQ:AAPL", "displayName": "Apple Inc." },
-                        { "name": "NASDAQ:NVDA", "displayName": "NVIDIA Corp." },
-                        { "name": "NASDAQ:TSLA", "displayName": "Tesla Inc." },
-                        { "name": "NASDAQ:GOOGL", "displayName": "Alphabet Inc." },
-                        { "name": "NASDAQ:AMZN", "displayName": "Amazon.com Inc." },
-                        { "name": "NASDAQ:PLTR", "displayName": "Palantir Technologies" },
-                        { "name": "NASDAQ:AVGO", "displayName": "Broadcom Inc." }
-                      ]
-                    },
-                    {
-                      "name": "Diversified & ETFs",
-                      "symbols": [
-                        { "name": "NYSE:DIS", "displayName": "Walt Disney Co." },
-                        { "name": "NYSE:F", "displayName": "Ford Motor Co." },
-                        { "name": "NYSE:NKE", "displayName": "Nike Inc." },
-                        { "name": "NYSE:ETN", "displayName": "Eaton Corp." },
-                        { "name": "AMEX:VOO", "displayName": "Vanguard S&P 500" },
-                        { "name": "AMEX:CONY", "displayName": "YieldMax CONY" }
-                      ]
-                    }
-                  ],
-                  "showSymbolLogo": false,
-                  "isTransparent": true,
-                  "colorTheme": "light",
-                  "locale": "en",
-                  "largeChartUrl": ""
-                }
-                  </script>
+                <div class="kr-table-container">
+                    <table class="kr-table" id="us-stock-list">
+                        <thead>
+                            <tr>
+                                <th>Security</th>
+                                <th>Last Price</th>
+                                <th>Change</th>
+                                <th>% Change</th>
+                                <th>High</th>
+                                <th>Low</th>
+                                <th>Prev. Close</th>
+                            </tr>
+                        </thead>
+                        <tbody><tr><td colspan="7" class="loading">Retrieving market data...</td></tr></tbody>
+                    </table>
                 </div>
             </div>
 
@@ -269,8 +246,57 @@
         }
     }
 
+    async function loadUSData() {
+        try {
+            const res = await fetch('data/latest_us_prices.json?t=' + Date.now());
+            if (!res.ok) throw new Error('Data file not found');
+            const data = await res.json();
+            const tbody = document.querySelector('#us-stock-list tbody');
+            tbody.innerHTML = '';
+            
+            data.forEach(item => {
+                const code = item.code; const name = item.name;
+                
+                // Format floats nicely for US
+                const formatNum = (num) => num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                
+                const price = formatNum(item.price);
+                const high = formatNum(item.high); 
+                const low = formatNum(item.low);
+                const prev = formatNum(item.prev);
+                const chgVal = item.change; const rate = item.rate.toFixed(2);
+                
+                let colorClass = 'change-neutral'; 
+                let sign = '';
+                if (chgVal > 0) { colorClass = 'change-up'; sign = '+'; } 
+                else if (chgVal < 0) { colorClass = 'change-down'; sign = ''; }
+                
+                const chgStr = sign + formatNum(chgVal); 
+                const pctStr = sign + rate + '%';
+                
+                const tr = document.createElement('tr');
+                const linkUrl = `https://finance.yahoo.com/quote/${code}`;
+                const nameHtml = `<a href="${linkUrl}" target="_blank" style="color:var(--primary-navy); font-weight:500; text-decoration:none;">${name} <i class="fas fa-external-link-alt" style="font-size:0.6rem; margin-left:4px; opacity:0.5;"></i></a>`;
+                
+                tr.innerHTML = `
+                    <td>${nameHtml}</td>
+                    <td style="font-weight:700;">$${price}</td>
+                    <td class="${colorClass}">${chgStr}</td>
+                    <td class="${colorClass}">${pctStr}</td>
+                    <td>${high}</td>
+                    <td>${low}</td>
+                    <td>${prev}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        } catch (e) {
+            document.querySelector('#us-stock-list tbody').innerHTML = `<tr><td colspan="7" class="loading" style="color:var(--negative);">Data sync failed</td></tr>`;
+        }
+    }
+
     // Initialize data load
     loadKoreaData();
+    loadUSData();
 </script>
 </body>
 </html>
