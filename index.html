@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestige Institutional</title>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Institutional Investor Theme (Goldman Sachs / Morgan Stanley Style) */
@@ -36,67 +35,6 @@
             -webkit-font-smoothing: antialiased;
         }
         
-        /* Sidebar */
-        .sidebar { 
-            width: 260px; 
-            background: var(--primary-navy); 
-            color: #ffffff;
-            display: flex; 
-            flex-direction: column; 
-            flex-shrink: 0; 
-            z-index: 10;
-        }
-        .logo { 
-            height: 70px; 
-            display: flex; 
-            align-items: center; 
-            padding: 0 1.5rem; 
-            font-family: 'Playfair Display', serif;
-            font-weight: 700; 
-            color: #ffffff; 
-            font-size: 1.3rem; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            letter-spacing: 0.05em;
-        }
-        .logo i { margin-right: 12px; color: var(--accent-gold); font-size: 1.2rem; }
-        .menu { flex: 1; overflow-y: auto; padding: 1rem 0; }
-        
-        .menu-group { margin-bottom: 0.5rem; }
-        .menu-header { 
-            padding: 0.75rem 1.5rem; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            color: var(--accent-gold); 
-            text-transform: uppercase; 
-            letter-spacing: 0.1em; 
-            cursor: pointer; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        .menu-header:hover { color: #ffffff; }
-        .menu-header i { font-size: 0.8rem; transition: transform 0.2s; }
-        .menu-header.collapsed i { transform: rotate(-90deg); }
-        .menu-items-container { display: block; overflow: hidden; }
-        .menu-items-container.hidden { display: none; }
-        
-        .menu-item { 
-            padding: 0.6rem 1.5rem 0.6rem 2.5rem; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            font-size: 0.85rem; 
-            color: #cbd5e1;
-            border-left: 3px solid transparent;
-        }
-        .menu-item:hover { color: #ffffff; background: rgba(255,255,255,0.05); }
-        .menu-item.active { 
-            color: #ffffff; 
-            background: rgba(197, 160, 89, 0.1); 
-            border-left-color: var(--accent-gold);
-            font-weight: 500;
-        }
-        
         /* Main Content */
         .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-color); }
         .header { 
@@ -109,7 +47,8 @@
             flex-shrink: 0;
             border-bottom: 2px solid var(--primary-navy);
         }
-        .header-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.4rem; color: var(--primary-navy); }
+        .header-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.4rem; color: var(--primary-navy); display: flex; align-items: center; }
+        .header-title i { margin-right: 12px; color: var(--accent-gold); font-size: 1.2rem; }
         .content-scroll { flex: 1; overflow-y: auto; padding: 2.5rem; }
         
         /* Tabbed Widget Area */
@@ -117,11 +56,12 @@
             background: var(--surface-color); 
             border-radius: var(--radius); 
             box-shadow: var(--shadow); 
-            margin-bottom: 2.5rem; 
+            margin: 0 auto; 
             border: 1px solid var(--border-color);
             min-height: 440px; 
             display: flex; 
             flex-direction: column; 
+            max-width: 1200px;
         }
         .widget-tabs { 
             display: flex; 
@@ -152,7 +92,7 @@
         .widget-content.active { display: block; }
         
         /* Formal Table for KR Stocks */
-        .kr-table-container { overflow-y: auto; max-height: 380px; padding: 1rem; }
+        .kr-table-container { overflow-y: auto; max-height: calc(100vh - 200px); padding: 1rem; }
         .kr-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         .kr-table th { 
             background: var(--surface-color); 
@@ -181,71 +121,20 @@
         .change-down { color: var(--negative); }
         .change-neutral { color: var(--text-muted); }
 
-        /* Report View (Markdown) */
-        .report-view { 
-            background: var(--surface-color); 
-            border-radius: var(--radius); 
-            box-shadow: var(--shadow); 
-            border: 1px solid var(--border-color); 
-            padding: 3.5rem 4rem; 
-            max-width: 850px; 
-            margin: 0 auto; 
-        }
         .loading { text-align: center; padding: 4rem; color: var(--text-muted); }
         
-        .markdown-body { line-height: 1.6; color: var(--text-main); font-size: 0.95rem; }
-        .markdown-body h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.8rem; 
-            color: var(--primary-navy); 
-            border-bottom: 3px solid var(--primary-navy); 
-            padding-bottom: 0.5rem; 
-            margin-top: 0; 
-            margin-bottom: 1.5rem; 
-        }
-        .markdown-body h2 { 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            color: var(--primary-navy); 
-            margin-top: 2rem; 
-            margin-bottom: 1rem; 
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3rem;
-        }
-        
-        .markdown-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid var(--border-color); }
-        .markdown-body th, .markdown-body td { padding: 0.6rem 1rem; border: 1px solid var(--border-color); text-align: right; }
-        .markdown-body th { background: #f8f9fa; font-weight: 700; color: var(--primary-navy); font-size: 0.8rem; text-transform: uppercase; }
-        .markdown-body td:first-child, .markdown-body th:first-child { text-align: left; }
-        
-        .markdown-body a { color: var(--primary-navy); text-decoration: underline; font-weight: 500; }
-        .markdown-body a:hover { color: var(--accent-gold); }
-        .markdown-body ul { padding-left: 1.5rem; }
-        .markdown-body li { margin-bottom: 0.4rem; }
-
         @media (max-width: 768px) { 
             body { flex-direction: column; overflow: auto; } 
-            .sidebar { width: 100%; height: auto; } 
             .header { padding: 0 1.5rem; }
             .content-scroll { padding: 1.5rem; overflow: visible; } 
-            .report-view { padding: 2rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <div class="logo"><i class="fas fa-university"></i> PRESTIGE</div>
-    <div class="menu" id="report-menu">
-        <div class="loading" style="padding: 2rem;">Loading Data...</div>
-    </div>
-</div>
-
 <div class="main">
     <header class="header">
-        <div class="header-title" id="page-title">Institutional Portfolio Report</div>
+        <div class="header-title" id="page-title"><i class="fas fa-university"></i> Prestige Institutional Dashboard</div>
         <div style="font-size:0.8rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:0.05em;" id="current-time"></div>
     </header>
 
@@ -264,7 +153,7 @@
                   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
                   {
                   "width": "100%",
-                  "height": 380,
+                  "height": "100%",
                   "symbolsGroups": [
                     {
                       "name": "US Tech & Core",
@@ -320,17 +209,13 @@
                 </div>
             </div>
         </div>
-
-        <div id="report-container" class="report-view">
-            <div class="loading"><i class="fas fa-circle-notch fa-spin fa-2x"></i></div>
-        </div>
     </div>
 </div>
 
 <script>
     setInterval(() => {
         const options = { weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-        document.getElementById('current-time').innerText = new Date().toLocaleString('en-US', options) + " EST";
+        document.getElementById('current-time').innerText = new Date().toLocaleString('en-US', options) + " KST";
     }, 1000);
 
     function switchTab(tab) {
@@ -339,79 +224,6 @@
         
         document.querySelectorAll('.widget-content').forEach(el => el.classList.remove('active'));
         document.getElementById('tab-' + tab).classList.add('active');
-    }
-
-    async function init() {
-        const menu = document.getElementById('report-menu');
-        try {
-            const res = await fetch('index.md?t=' + Date.now());
-            if (!res.ok) throw new Error('Index load failed: ' + res.status);
-            const text = await res.text();
-            
-            const reports = [];
-            text.split('\n').forEach(line => {
-                const m = line.match(/- \[(.*?)\]\((.*?)\)/);
-                if (m) {
-                    let title = m[1]; let url = m[2];
-                    if (url.includes('/blob/gh-pages/')) url = url.split('/blob/gh-pages/')[1];
-                    let date = "Unknown";
-                    let dateMatch = title.match(/(\d{4}-\d{2}-\d{2})/);
-                    if (!dateMatch) dateMatch = url.match(/(\d{4}-\d{2}-\d{2})/);
-                    if (dateMatch) date = dateMatch[1];
-                    reports.push({ title, url, date });
-                }
-            });
-
-            // Start JSON fetch for KR Table
-            loadKoreaData();
-
-            const groups = {};
-            reports.forEach(r => {
-                const month = (r.date !== "Unknown") ? r.date.substring(0, 7) : "Recent";
-                if (!groups[month]) groups[month] = [];
-                groups[month].push(r);
-            });
-
-            menu.innerHTML = '';
-            const sortedMonths = Object.keys(groups).sort().reverse();
-            
-            sortedMonths.forEach((month, groupIdx) => {
-                const grpDiv = document.createElement('div'); grpDiv.className = 'menu-group';
-                
-                const header = document.createElement('div'); header.className = 'menu-header';
-                let displayMonth = month;
-                if(month.length === 7) {
-                    const d = new Date(month + "-01");
-                    displayMonth = d.toLocaleString('en-US', { month: 'long', year: 'numeric' });
-                }
-                header.innerHTML = `<span>${displayMonth}</span> <i class="fas fa-chevron-down"></i>`;
-                
-                const itemsContainer = document.createElement('div'); itemsContainer.className = 'menu-items-container';
-                if (groupIdx > 0) { itemsContainer.classList.add('hidden'); header.classList.add('collapsed'); }
-                
-                header.onclick = () => { 
-                    itemsContainer.classList.toggle('hidden'); 
-                    header.classList.toggle('collapsed'); 
-                };
-                
-                groups[month].forEach((r) => {
-                    const item = document.createElement('div'); item.className = 'menu-item';
-                    let cleanTitle = r.title.replace(' Report', '');
-                    item.innerHTML = `${cleanTitle}`;
-                    item.onclick = () => {
-                        document.querySelectorAll('.menu-item').forEach(e => e.classList.remove('active'));
-                        item.classList.add('active');
-                        loadReport(r.url, r.title);
-                    };
-                    itemsContainer.appendChild(item);
-                });
-                
-                grpDiv.appendChild(header); grpDiv.appendChild(itemsContainer); menu.appendChild(grpDiv);
-            });
-            if (menu.querySelector('.menu-item')) menu.querySelector('.menu-item').click();
-        } catch (e) { 
-            menu.innerHTML = '<div style="padding:1.5rem; color:var(--negative); font-size:0.8rem;">Failed to load documents.</div>';
-        }
     }
 
     async function loadKoreaData() {
@@ -457,19 +269,8 @@
         }
     }
 
-    async function loadReport(url, title) {
-        document.getElementById('page-title').innerText = title;
-        const container = document.getElementById('report-container');
-        container.innerHTML = '<div class="loading"><i class="fas fa-circle-notch fa-spin fa-2x"></i></div>';
-        try {
-            const res = await fetch(url + '?t=' + Date.now());
-            if (!res.ok) throw new Error('Load failed');
-            const md = await res.text();
-            container.innerHTML = marked.parse(md);
-        } catch (e) { container.innerHTML = `<div style="color:var(--negative); padding:2rem;">Error: ${e.message}</div>`; }
-    }
-    
-    init();
+    // Initialize data load
+    loadKoreaData();
 </script>
 </body>
 </html>
