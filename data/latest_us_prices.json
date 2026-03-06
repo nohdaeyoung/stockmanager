@@ -2,131 +2,131 @@
   {
     "code": "AAPL",
     "name": "Apple Inc.",
-    "price": 260.29,
-    "change": -2.23,
-    "rate": -0.85,
-    "high": 261.56,
-    "low": 257.25,
-    "prev": 262.52
+    "price": 257.46,
+    "change": -2.83,
+    "rate": -1.09,
+    "high": 258.76,
+    "low": 254.37,
+    "prev": 260.29
   },
   {
     "code": "NVDA",
     "name": "NVIDIA Corporation",
-    "price": 183.34,
-    "change": 0.3,
-    "rate": 0.16,
-    "high": 184.06,
-    "low": 177.89,
-    "prev": 183.04
+    "price": 177.82,
+    "change": -5.52,
+    "rate": -3.01,
+    "high": 182.76,
+    "low": 176.82,
+    "prev": 183.34
   },
   {
     "code": "TSLA",
     "name": "Tesla, Inc.",
-    "price": 405.55,
-    "change": -0.39,
-    "rate": -0.1,
-    "high": 408.62,
-    "low": 399.42,
-    "prev": 405.94
+    "price": 396.73,
+    "change": -8.82,
+    "rate": -2.17,
+    "high": 402.35,
+    "low": 394.22,
+    "prev": 405.55
   },
   {
     "code": "GOOGL",
     "name": "Alphabet Inc.",
-    "price": 300.88,
-    "change": -2.25,
-    "rate": -0.74,
-    "high": 303.27,
-    "low": 297.99,
-    "prev": 303.13
+    "price": 298.52,
+    "change": -2.36,
+    "rate": -0.78,
+    "high": 300.53,
+    "low": 295.18,
+    "prev": 300.88
   },
   {
     "code": "AMZN",
     "name": "Amazon.com, Inc.",
-    "price": 218.94,
-    "change": 2.12,
-    "rate": 0.98,
-    "high": 220.47,
-    "low": 215.59,
-    "prev": 216.82
+    "price": 213.21,
+    "change": -5.73,
+    "rate": -2.62,
+    "high": 217.32,
+    "low": 212.53,
+    "prev": 218.94
   },
   {
     "code": "PLTR",
     "name": "Palantir Technologies Inc.",
-    "price": 152.67,
-    "change": -0.44,
-    "rate": -0.29,
-    "high": 156.38,
-    "low": 149.61,
-    "prev": 153.11
+    "price": 157.16,
+    "change": 4.49,
+    "rate": 2.94,
+    "high": 161.45,
+    "low": 150.3,
+    "prev": 152.67
   },
   {
     "code": "AVGO",
     "name": "Broadcom Inc.",
-    "price": 332.77,
-    "change": 15.24,
-    "rate": 4.8,
-    "high": 336.12,
-    "low": 323.03,
-    "prev": 317.53
+    "price": 330.48,
+    "change": -2.26,
+    "rate": -0.68,
+    "high": 343.5,
+    "low": 327.4,
+    "prev": 332.74
   },
   {
     "code": "DIS",
     "name": "The Walt Disney Company",
-    "price": 102.41,
-    "change": -0.63,
-    "rate": -0.61,
-    "high": 104.55,
-    "low": 101.6,
-    "prev": 103.04
+    "price": 101.54,
+    "change": -0.87,
+    "rate": -0.85,
+    "high": 101.81,
+    "low": 99.95,
+    "prev": 102.41
   },
   {
     "code": "F",
     "name": "Ford Motor Company",
-    "price": 12.34,
-    "change": -0.47,
-    "rate": -3.67,
-    "high": 12.74,
-    "low": 12.24,
-    "prev": 12.81
+    "price": 12.15,
+    "change": -0.19,
+    "rate": -1.54,
+    "high": 12.32,
+    "low": 12.03,
+    "prev": 12.34
   },
   {
     "code": "NKE",
     "name": "NIKE, Inc.",
-    "price": 58.02,
-    "change": -0.62,
-    "rate": -1.06,
-    "high": 58.79,
-    "low": 57.43,
-    "prev": 58.64
+    "price": 57.01,
+    "change": -1.01,
+    "rate": -1.74,
+    "high": 57.55,
+    "low": 56.77,
+    "prev": 58.02
   },
   {
     "code": "ETN",
     "name": "Eaton Corporation plc",
-    "price": 354.79,
-    "change": 0.33,
-    "rate": 0.09,
-    "high": 356.23,
-    "low": 345.77,
-    "prev": 354.46
+    "price": 347.75,
+    "change": -7.04,
+    "rate": -1.98,
+    "high": 353.85,
+    "low": 340.66,
+    "prev": 354.79
   },
   {
     "code": "VOO",
     "name": "Vanguard S&P 500 ETF",
-    "price": 626.81,
-    "change": -3.37,
-    "rate": -0.53,
-    "high": 630.5,
-    "low": 621.4,
-    "prev": 630.18
+    "price": 618.43,
+    "change": -8.38,
+    "rate": -1.34,
+    "high": 621.82,
+    "low": 616.0,
+    "prev": 626.81
   },
   {
     "code": "CONY",
     "name": "YieldMax COIN Option Income Strategy ETF",
-    "price": 31.65,
-    "change": -0.43,
-    "rate": -1.34,
-    "high": 32.6,
-    "low": 31.08,
-    "prev": 32.08
+    "price": 30.45,
+    "change": -1.2,
+    "rate": -3.79,
+    "high": 31.18,
+    "low": 30.22,
+    "prev": 31.65
   }
 ]
