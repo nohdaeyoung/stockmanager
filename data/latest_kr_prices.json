@@ -1,260 +1,260 @@
 {
-  "date": "2026-03-11",
+  "date": "2026-03-12",
   "timezone": "Asia/Seoul",
   "items": [
     {
       "ticker": "088980",
       "name": "맥쿼리인프라",
       "status": "CLOSE",
-      "open": 11240,
-      "close": 11300,
+      "open": 11290,
+      "close": 11370,
       "change": {
         "value": 70,
         "percent": 0.62
       },
-      "high": 11350,
-      "low": 11240,
-      "previous_close": 11230,
-      "volume": 1535265,
-      "turnover": 17360000000,
+      "high": 11370,
+      "low": 11290,
+      "previous_close": 11300,
+      "volume": 1279540,
+      "turnover": 14516000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:088980"
     },
     {
       "ticker": "360200",
       "name": "ACE 미국S&P500",
       "status": "CLOSE",
-      "open": 25080,
-      "close": 25010,
+      "open": 24975,
+      "close": 24970,
       "change": {
-        "value": 10,
-        "percent": 0.04
+        "value": 40,
+        "percent": 0.16
       },
-      "high": 25165,
-      "low": 24955,
-      "previous_close": 25020,
-      "volume": 409001,
-      "turnover": 10252000000,
+      "high": 25025,
+      "low": 24890,
+      "previous_close": 25010,
+      "volume": 745761,
+      "turnover": 18603000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:360200"
     },
     {
       "ticker": "379800",
       "name": "KODEX 미국S&P500",
       "status": "CLOSE",
-      "open": 22685,
-      "close": 22610,
+      "open": 22580,
+      "close": 22575,
       "change": {
-        "value": 10,
-        "percent": 0.04
+        "value": 35,
+        "percent": 0.15
       },
-      "high": 22760,
-      "low": 22560,
-      "previous_close": 22620,
-      "volume": 10836539,
-      "turnover": 245342000000,
+      "high": 22625,
+      "low": 22495,
+      "previous_close": 22610,
+      "volume": 8518959,
+      "turnover": 191986000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:379800"
     },
     {
       "ticker": "395170",
       "name": "KODEX Top10동일가중",
       "status": "CLOSE",
-      "open": 15205,
+      "open": 14900,
       "close": 14970,
       "change": {
-        "value": 75,
-        "percent": 0.5
+        "value": 0,
+        "percent": 0
       },
-      "high": 15350,
-      "low": 14800,
-      "previous_close": 14895,
-      "volume": 37600,
-      "turnover": 570000000,
+      "high": 15065,
+      "low": 14825,
+      "previous_close": 14970,
+      "volume": 18583,
+      "turnover": 277000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:395170"
     },
     {
       "ticker": "292150",
       "name": "TIGER 코리아TOP10",
       "status": "CLOSE",
-      "open": 30820,
-      "close": 30635,
+      "open": 30265,
+      "close": 30335,
       "change": {
-        "value": 480,
-        "percent": 1.59
+        "value": 300,
+        "percent": 0.98
       },
-      "high": 31350,
-      "low": 30220,
-      "previous_close": 30155,
-      "volume": 3157120,
-      "turnover": 97741000000,
+      "high": 30680,
+      "low": 29950,
+      "previous_close": 30635,
+      "volume": 2217743,
+      "turnover": 67045000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:292150"
     },
     {
       "ticker": "329200",
       "name": "TIGER 리츠부동산인프라",
       "status": "CLOSE",
-      "open": 4500,
-      "close": 4520,
+      "open": 4515,
+      "close": 4570,
       "change": {
-        "value": 30,
-        "percent": 0.67
+        "value": 50,
+        "percent": 1.11
       },
-      "high": 4590,
-      "low": 4490,
-      "previous_close": 4490,
-      "volume": 5931644,
-      "turnover": 26800000000,
+      "high": 4575,
+      "low": 4495,
+      "previous_close": 4520,
+      "volume": 5100091,
+      "turnover": 23216000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:329200"
     },
     {
       "ticker": "364980",
       "name": "TIGER 2차전지TOP10",
       "status": "CLOSE",
-      "open": 10410,
-      "close": 10285,
+      "open": 10220,
+      "close": 10300,
       "change": {
-        "value": 35,
-        "percent": 0.34
+        "value": 15,
+        "percent": 0.15
       },
-      "high": 10600,
-      "low": 10155,
-      "previous_close": 10250,
-      "volume": 1895377,
-      "turnover": 19758000000,
+      "high": 10410,
+      "low": 10165,
+      "previous_close": 10285,
+      "volume": 1412843,
+      "turnover": 14519000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:364980"
     },
     {
       "ticker": "360750",
       "name": "TIGER 미국S&P500",
       "status": "CLOSE",
-      "open": 24815,
-      "close": 24730,
+      "open": 24715,
+      "close": 24695,
       "change": {
-        "value": 20,
-        "percent": 0.08
+        "value": 35,
+        "percent": 0.14
       },
-      "high": 24900,
-      "low": 24685,
-      "previous_close": 24750,
-      "volume": 8763827,
-      "turnover": 217155000000,
+      "high": 24760,
+      "low": 24615,
+      "previous_close": 24730,
+      "volume": 6906319,
+      "turnover": 170287000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:360750"
     },
     {
       "ticker": "381180",
       "name": "TIGER 미국필라델피아반도체나스닥",
       "status": "CLOSE",
-      "open": 30445,
-      "close": 30345,
+      "open": 30300,
+      "close": 30315,
       "change": {
-        "value": 440,
-        "percent": 1.47
+        "value": 30,
+        "percent": 0.1
       },
-      "high": 30640,
-      "low": 30280,
-      "previous_close": 29905,
-      "volume": 1250285,
-      "turnover": 38134000000,
+      "high": 30390,
+      "low": 30180,
+      "previous_close": 30345,
+      "volume": 1698839,
+      "turnover": 51427000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:381180"
     },
     {
       "ticker": "148020",
       "name": "RISE 200",
       "status": "CLOSE",
-      "open": 85475,
-      "close": 84455,
+      "open": 83805,
+      "close": 83550,
       "change": {
-        "value": 860,
-        "percent": 1.03
+        "value": 905,
+        "percent": 1.07
       },
-      "high": 86750,
-      "low": 83710,
-      "previous_close": 83595,
-      "volume": 2074898,
-      "turnover": 177465000000,
+      "high": 84750,
+      "low": 83020,
+      "previous_close": 84455,
+      "volume": 770234,
+      "turnover": 64413000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:148020"
     },
     {
       "ticker": "161510",
       "name": "PLUS 고배당주",
       "status": "CLOSE",
-      "open": 26250,
-      "close": 26230,
+      "open": 26165,
+      "close": 26175,
       "change": {
-        "value": 490,
-        "percent": 1.9
+        "value": 55,
+        "percent": 0.21
       },
-      "high": 26770,
-      "low": 25970,
-      "previous_close": 25740,
-      "volume": 1926568,
-      "turnover": 51077000000,
+      "high": 26175,
+      "low": 25800,
+      "previous_close": 26230,
+      "volume": 1406130,
+      "turnover": 36522000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:161510"
     },
     {
       "ticker": "302450",
       "name": "RISE 코스피",
       "status": "CLOSE",
-      "open": 59100,
-      "close": 58465,
+      "open": 58080,
+      "close": 57780,
       "change": {
-        "value": 815,
-        "percent": 1.41
+        "value": 685,
+        "percent": 1.17
       },
-      "high": 59795,
-      "low": 57875,
-      "previous_close": 57650,
-      "volume": 20751,
-      "turnover": 1221923585.0,
+      "high": 58555,
+      "low": 57545,
+      "previous_close": 58465,
+      "volume": 27267,
+      "turnover": 1575959390,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:302450"
     },
     {
       "ticker": "381170",
       "name": "TIGER 미국테크TOP10 INDXX",
       "status": "CLOSE",
-      "open": 29440,
-      "close": 29395,
+      "open": 29390,
+      "close": 29425,
       "change": {
-        "value": 100,
-        "percent": 0.34
+        "value": 30,
+        "percent": 0.1
       },
-      "high": 29605,
-      "low": 29320,
-      "previous_close": 29295,
-      "volume": 577418,
-      "turnover": 17019000000,
+      "high": 29495,
+      "low": 29315,
+      "previous_close": 29395,
+      "volume": 3072566,
+      "turnover": 90319000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:381170"
     },
     {
       "ticker": "488770",
       "name": "KODEX 머니마켓액티브",
       "status": "CLOSE",
-      "open": 103770,
-      "close": 103775,
+      "open": 103785,
+      "close": 103785,
       "change": {
         "value": 10,
         "percent": 0.01
       },
-      "high": 103775,
-      "low": 103770,
-      "previous_close": 103765,
-      "volume": 510050,
-      "turnover": 52929000000,
+      "high": 103785,
+      "low": 103780,
+      "previous_close": 103775,
+      "volume": 487335,
+      "turnover": 50577000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:488770"
     },
     {
       "ticker": "069500",
       "name": "KODEX 200",
       "status": "CLOSE",
-      "open": 84950,
-      "close": 83825,
+      "open": 83065,
+      "close": 83200,
       "change": {
-        "value": 925,
-        "percent": 1.12
+        "value": 625,
+        "percent": 0.75
       },
-      "high": 86085,
-      "low": 83045,
-      "previous_close": 82900,
-      "volume": 17424955,
-      "turnover": 1481361000000,
+      "high": 84092,
+      "low": 82380,
+      "previous_close": 83825,
+      "volume": 10767471,
+      "turnover": 894636000000,
       "source": "https://polling.finance.naver.com/api/realtime?query=SERVICE_ITEM:069500"
     }
   ]
