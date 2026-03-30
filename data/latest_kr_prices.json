@@ -1,231 +1,231 @@
 {
-  "as_of": "2026-03-27",
+  "as_of": "2026-03-30",
   "timezone": "Asia/Seoul",
   "source": "Naver Finance (m.stock.naver.com front-api)",
   "symbols": [
     {
       "ticker": "088980",
-      "date": "2026-03-27",
-      "open": 11370,
-      "high": 11440,
-      "low": 11370,
-      "close": 11410,
-      "change": -50,
-      "change_percent": -0.4363,
-      "foreign_ownership_percent": 10.0,
+      "date": "2026-03-30",
+      "open": 11360,
+      "high": 11400,
+      "low": 11260,
+      "close": 11340,
+      "change": -70,
+      "change_percent": -0.6135,
+      "foreign_ownership_percent": 9.87,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=088980&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=088980&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "360200",
-      "date": "2026-03-27",
-      "open": 24660,
-      "high": 24685,
-      "low": 24520,
-      "close": 24680,
-      "change": -170,
-      "change_percent": -0.6841,
-      "foreign_ownership_percent": 0.04,
+      "date": "2026-03-30",
+      "open": 24050,
+      "high": 24275,
+      "low": 23965,
+      "close": 24275,
+      "change": -405,
+      "change_percent": -1.641,
+      "foreign_ownership_percent": 0.06,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=360200&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=360200&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "379800",
-      "date": "2026-03-27",
-      "open": 22300,
-      "high": 22325,
-      "low": 22175,
-      "close": 22320,
-      "change": -140,
-      "change_percent": -0.6233,
-      "foreign_ownership_percent": 0.08,
+      "date": "2026-03-30",
+      "open": 21770,
+      "high": 21945,
+      "low": 21675,
+      "close": 21945,
+      "change": -375,
+      "change_percent": -1.6801,
+      "foreign_ownership_percent": 0.06,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=379800&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=379800&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "395170",
-      "date": "2026-03-27",
-      "open": 14050,
-      "high": 14445,
-      "low": 13800,
-      "close": 14445,
-      "change": -60,
-      "change_percent": -0.4137,
+      "date": "2026-03-30",
+      "open": 13685,
+      "high": 14010,
+      "low": 13580,
+      "close": 13930,
+      "change": -515,
+      "change_percent": -3.5652,
       "foreign_ownership_percent": 0.39,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=395170&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=395170&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "292150",
-      "date": "2026-03-27",
-      "open": 28305,
-      "high": 29265,
-      "low": 27925,
-      "close": 29105,
-      "change": -145,
-      "change_percent": -0.4957,
-      "foreign_ownership_percent": 34.1,
+      "date": "2026-03-30",
+      "open": 27770,
+      "high": 28220,
+      "low": 27445,
+      "close": 28050,
+      "change": -1055,
+      "change_percent": -3.6248,
+      "foreign_ownership_percent": 34.11,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=292150&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=292150&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "329200",
-      "date": "2026-03-27",
-      "open": 4600,
-      "high": 4640,
-      "low": 4585,
-      "close": 4640,
-      "change": 25,
-      "change_percent": 0.5417,
-      "foreign_ownership_percent": 0.08,
+      "date": "2026-03-30",
+      "open": 4575,
+      "high": 4585,
+      "low": 4560,
+      "close": 4575,
+      "change": -35,
+      "change_percent": -0.7592,
+      "foreign_ownership_percent": 0.09,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=329200&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=329200&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "364980",
-      "date": "2026-03-27",
-      "open": 9985,
-      "high": 10395,
-      "low": 9730,
-      "close": 10350,
-      "change": 185,
-      "change_percent": 1.82,
-      "foreign_ownership_percent": 0.96,
+      "date": "2026-03-30",
+      "open": 10025,
+      "high": 10665,
+      "low": 9990,
+      "close": 10575,
+      "change": 225,
+      "change_percent": 2.1739,
+      "foreign_ownership_percent": 0.47,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=364980&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=364980&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "360750",
-      "date": "2026-03-27",
-      "open": 24425,
-      "high": 24425,
-      "low": 24255,
-      "close": 24420,
-      "change": -160,
-      "change_percent": -0.6509,
-      "foreign_ownership_percent": 0.07,
+      "date": "2026-03-30",
+      "open": 23865,
+      "high": 24012,
+      "low": 23715,
+      "close": 24010,
+      "change": -410,
+      "change_percent": -1.679,
+      "foreign_ownership_percent": 0.1,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=360750&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=360750&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "381180",
-      "date": "2026-03-27",
-      "open": 30120,
-      "high": 30485,
-      "low": 30110,
-      "close": 30390,
-      "change": -830,
-      "change_percent": -2.6586,
-      "foreign_ownership_percent": 0.73,
+      "date": "2026-03-30",
+      "open": 29295,
+      "high": 29665,
+      "low": 29145,
+      "close": 29665,
+      "change": -725,
+      "change_percent": -2.3857,
+      "foreign_ownership_percent": 0.03,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=381180&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=381180&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "148020",
-      "date": "2026-03-27",
-      "open": 79290,
-      "high": 82215,
-      "low": 78350,
-      "close": 81945,
-      "change": -295,
-      "change_percent": -0.3587,
-      "foreign_ownership_percent": 0.01,
+      "date": "2026-03-30",
+      "open": 77485,
+      "high": 79750,
+      "low": 77310,
+      "close": 79445,
+      "change": -2500,
+      "change_percent": -3.0508,
+      "foreign_ownership_percent": 0.04,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=148020&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=148020&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "161510",
-      "date": "2026-03-27",
-      "open": 25410,
-      "high": 26060,
-      "low": 25160,
-      "close": 26010,
-      "change": 100,
-      "change_percent": 0.386,
-      "foreign_ownership_percent": 0.17,
+      "date": "2026-03-30",
+      "open": 25095,
+      "high": 25340,
+      "low": 24745,
+      "close": 25220,
+      "change": -705,
+      "change_percent": -2.7194,
+      "foreign_ownership_percent": 0.2,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=161510&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=161510&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "302450",
-      "date": "2026-03-27",
-      "open": 55395,
-      "high": 56930,
-      "low": 54400,
-      "close": 56700,
-      "change": -100,
-      "change_percent": -0.1761,
+      "date": "2026-03-30",
+      "open": 54170,
+      "high": 55380,
+      "low": 53780,
+      "close": 54870,
+      "change": -1830,
+      "change_percent": -3.2275,
       "foreign_ownership_percent": 0.09,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=302450&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=302450&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "381170",
-      "date": "2026-03-27",
-      "open": 28230,
-      "high": 28260,
-      "low": 28040,
-      "close": 28225,
-      "change": -415,
-      "change_percent": -1.449,
-      "foreign_ownership_percent": 0.19,
+      "date": "2026-03-30",
+      "open": 27275,
+      "high": 27490,
+      "low": 27045,
+      "close": 27490,
+      "change": -735,
+      "change_percent": -2.6041,
+      "foreign_ownership_percent": 0.0,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=381170&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=381170&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "488770",
-      "date": "2026-03-27",
-      "open": 103930,
-      "high": 103935,
-      "low": 103930,
-      "close": 103935,
-      "change": 30,
-      "change_percent": 0.0289,
+      "date": "2026-03-30",
+      "open": 103935,
+      "high": 103940,
+      "low": 103935,
+      "close": 103940,
+      "change": 5,
+      "change_percent": 0.0048,
       "foreign_ownership_percent": 0.48,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=488770&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=488770&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     },
     {
       "ticker": "069500",
-      "date": "2026-03-27",
-      "open": 78885,
-      "high": 81545,
-      "low": 77740,
-      "close": 81225,
-      "change": -375,
-      "change_percent": -0.4596,
-      "foreign_ownership_percent": 24.31,
+      "date": "2026-03-30",
+      "open": 77325,
+      "high": 79150,
+      "low": 76705,
+      "close": 78680,
+      "change": -2545,
+      "change_percent": -3.1333,
+      "foreign_ownership_percent": 23.66,
       "source": {
         "type": "naver_finance_domestic_chart",
-        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=069500&requestType=1&startTime=20260210&endTime=20260327&timeframe=day"
+        "url": "https://m.stock.naver.com/front-api/external/chart/domestic/info?symbol=069500&requestType=1&startTime=20260213&endTime=20260330&timeframe=day"
       }
     }
   ]
